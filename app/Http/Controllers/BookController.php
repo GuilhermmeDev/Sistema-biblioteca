@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
-use Ramsey\Uuid\Uuid;
 
 class BookController extends Controller
 {
@@ -19,9 +18,7 @@ class BookController extends Controller
     }
 
     public function store(Request $request) {
-        $datetime = date('d-m-Y h:i:s', time());
         $book = new Book;
-        $book->id = Uuid::uuid4($datetime);
         $book->titulo = $request->title;
         $book->genero = $request->genrer;
         $book->autor = $request->author;
@@ -35,6 +32,13 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect('/');
+        return redirect('/')->with('msg', 'Livro cadastrado com sucesso');
+    }
+
+    public function show($id) {
+
+        $book = Book::findOrFail($id);
+
+        return view('show', ['book'=>$book]);
     }
 }

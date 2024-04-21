@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('books', function(Blueprint $table)
         {
-            $table->uuid('id')->primary();
+            $table->bigIncrements('id')->primary();
             $table->string('titulo');
             $table->string('genero');
             $table->string('autor');
