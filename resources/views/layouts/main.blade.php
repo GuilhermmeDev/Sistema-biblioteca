@@ -28,6 +28,24 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/create">Cadastrar Livro</a>
                 </li>
+                @guest
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register">Cadastrar-se</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+                @endguest
+                @auth
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">Logout</a>
+                  </li>
+                @endauth
               </ul>
             </div>
           </nav>

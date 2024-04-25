@@ -7,3 +7,7 @@ Route::get('/', [BookController::class, 'index']);
 Route::get('/create', [BookController::class, 'create']);
 Route::POST('/store', [BookController::class, 'store']);
 Route::get('/book/{id}', [BookController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
