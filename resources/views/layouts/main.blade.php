@@ -25,9 +25,6 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/create">Cadastrar Livro</a>
-                </li>
                 @guest
                   <li class="nav-item">
                     <a class="nav-link" href="/register">Cadastrar-se</a>
@@ -48,6 +45,11 @@
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">Logout</a>
                   </li>
+                  @if(Auth::user()->level == 1)
+                    <li class="nav-item">
+                      <a class="nav-link" href="/create">Cadastrar Livro</a>
+                    </li>
+                  @endif
                 @endauth
               </ul>
             </div>

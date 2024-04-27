@@ -5,6 +5,9 @@
 @if(session('msg'))
     <p class="msg">{{session('msg')}}</p>
 @endif
+@if(session('Error'))
+    <p class="msg fail">{{session('Error')}}</p>
+@endif
 <div class="container">
         <div class="row">
             @foreach ($book as $item)
