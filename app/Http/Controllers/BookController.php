@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class BookController extends Controller
 {
@@ -19,20 +20,40 @@ class BookController extends Controller
 
     public function store(Request $request) {
         $book = new Book;
-        $book->titulo = $request->title;
+        try {
+            $verifyBookTitle = Book::where('titulo', $request->titulo)->firstOrFail();
+            return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente');
+
+        } catch (ModelNotFoundException $e){
+            $book->titulo = $request->title;
+        }
+        
+        if ($request->aval < 0 or $request->aval > 10) {
+            return redirect('/create')->with('msg_fail', 'Avaliação inválida');
+        }
+        
+        $book->avaliacao = $request->aval;
+        
+        if ($request->ano_lancamento <= date('Y')) {
+            $book->ano_lancamento = $request->ano_lancamento;
+        }
+        else {
+            return redirect('/create')->with('msg_fail', 'Ano de lançamento invalido');
+        }
+        
         $book->genero = $request->genrer;
         $book->autor = $request->author;
         $book->sinopse = $request->sinopse;
-        $book->avaliacao = $request->aval;
-        $book->ano_lancamento = $request->ano_lancamento;
         $book->num_exemplares = $request->num_exemplares;
         $book->num_paginas = $request->num_paginas;
         $book->url_img = $request->url_img;
         $book->disponibilidade = $request->disponibilidade;
-
+        
+        
         $book->save();
 
         return redirect('/')->with('msg', 'Livro cadastrado com sucesso');
+
     }
 
     public function show($id) {

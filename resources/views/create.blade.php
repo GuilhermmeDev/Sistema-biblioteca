@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('title', 'Criar')
 @section('content')
+@if(session('msg_fail'))
+    <p class="msg fail">{{session('msg_fail')}}</p>
+@endif
+
+
     <div id="container_create">
         <h1>Página de inserção de livros</h1>
         <form action="/store" method="POST">

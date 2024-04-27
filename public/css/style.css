@@ -24,3 +24,8 @@
 .btn-dark {
     margin-top: 20px;
 }
+
+.fail {
+    background-color: #edd4d8;
+    color: #57152e;
+}

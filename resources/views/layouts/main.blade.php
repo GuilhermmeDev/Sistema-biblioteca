@@ -37,6 +37,9 @@
                   </li>
                 @endguest
                 @auth
+                  <li class="nav-item">
+                    <p class="nav-link">Olá, {{Auth::user()->name}}!</p>
+                  </li>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                   </form>
