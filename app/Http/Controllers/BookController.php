@@ -20,8 +20,9 @@ class BookController extends Controller
 
     public function store(Request $request) {
         $book = new Book;
+        
         try {
-            $verifyBookTitle = Book::where('titulo', $request->titulo)->firstOrFail();
+            $verifyBookOccurrance = Book::where('titulo', $request->title)->firstOrFail();
             return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente');
 
         } catch (ModelNotFoundException $e){
@@ -49,17 +50,14 @@ class BookController extends Controller
         $book->url_img = $request->url_img;
         $book->disponibilidade = $request->disponibilidade;
         
-        
         $book->save();
-
         return redirect('/')->with('msg', 'Livro cadastrado com sucesso');
-
     }
 
     public function show($id) {
 
         $book = Book::findOrFail($id);
 
-        return view('show', ['book'=>$book]);
+        return view('show', ['book'=>$book, 'titulo'=>$book->titulo]);
     }
 }

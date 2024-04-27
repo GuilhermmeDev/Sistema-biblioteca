@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Mostrando Livro')
+@section('title', $titulo)
 
 @section('content')
 

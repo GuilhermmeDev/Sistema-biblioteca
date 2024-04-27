@@ -13,7 +13,7 @@
                     <p>{{$item->sinopse}}</p>
                     <p>{{$item->genero}}</p>
                     <p>{{$item->avaliacao}}</p>
-                    <img src="{{$item->url_img}}" alt="" width="100" height="100">
+                    <img src="{{$item->url_img}}" alt="Foto do livro {{$item->titulo}}">
                     <br>
                     <a class="btn btn-dark" href="/book/{{ $item->id }}">Veja mais</a>
                 </div>
