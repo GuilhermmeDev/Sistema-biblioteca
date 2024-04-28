@@ -18,6 +18,9 @@ class AdminMiddleWare
         if (auth()->check() && auth()->user()->level) {
             return $next($request);
         }
+        else if(auth()->check() == false) {
+            return redirect('/login')->with('Error', 'Faça o login para acessar a página');
+        }
 
         return redirect('/')->with('Error', 'Você não tem permissão de acessar essa página');
     }

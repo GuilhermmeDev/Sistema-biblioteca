@@ -1,30 +1,12 @@
 @extends('layouts.main')
-@section('title', 'HomePage')
-
+@section('title', 'Lybris, Sua biblioteca virtual')
+<style>
+    .logo {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+    }
+</style>
 @section('content')
-@if(session('msg'))
-    <p class="msg">{{session('msg')}}</p>
-@endif
-@if(session('Error'))
-    <p class="msg fail">{{session('Error')}}</p>
-@endif
-<div class="container">
-        <div class="row">
-            @foreach ($book as $item)
-                <div class="col-sm">
-                    <p>{{$item->titulo}}</p>
-                    <p>{{$item->sinopse}}</p>
-                    <p>{{$item->genero}}</p>
-                    <p>{{$item->avaliacao}}</p>
-                    <img src="{{$item->url_img}}" alt="Foto do livro {{$item->titulo}}">
-                    <br>
-                    <a class="btn btn-dark" href="/book/{{ $item->id }}">Veja mais</a>
-                </div>
-                
-            @endforeach
-        </div>
-    
-</div>
-    
+    <img src="imgs/lybris-logo.svg" alt="Logo Lybris" class="logo">
 @endsection
-

@@ -1,23 +1,35 @@
-@extends('layouts.app')
+@extends('layouts.main')
+@section('title', 'HomePage')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
+@if(session('msg'))
+<div class="alert alert-sucess">
+    <p class="msg">{{session('msg')}}</p>
 </div>
+@endif
+@if(session('Error'))
+    <div class="alert alert-danger">
+        <p>{{session('Error')}}</p>
+    </div>
+    
+@endif
+<div class="container">
+        <div class="row">
+            @foreach ($book as $item)
+                <div class="col-sm">
+                    <p>{{$item->titulo}}</p>
+                    <p>{{$item->sinopse}}</p>
+                    <p>{{$item->genero}}</p>
+                    <p>{{$item->avaliacao}}</p>
+                    <img src="{{$item->url_img}}" alt="Foto do livro {{$item->titulo}}">
+                    <br>
+                    <a class="btn btn-dark" href="/book/{{ $item->id }}">Veja mais</a>
+                </div>
+                
+            @endforeach
+        </div>
+    
+</div>
+    
 @endsection
+

@@ -8,10 +8,17 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class BookController extends Controller
 {
+    public function welcome() {
+        if (auth()->check() == true) {
+            return BookController::index();
+        }
+        return view('welcome');
+    }
+
     public function index(){
         $books = Book::all();
 
-        return view('welcome', ['book' => $books]);
+        return view('home', ['book' => $books]);
     }
 
     public function create() {
