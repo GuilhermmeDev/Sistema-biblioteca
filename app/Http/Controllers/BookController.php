@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Models\Reservation;
 
 class BookController extends Controller
 {
@@ -64,7 +65,8 @@ class BookController extends Controller
     public function show($id) {
 
         $book = Book::findOrFail($id);
+        $userReservation = Reservation::where('user_id', auth()->id())->first();
 
-        return view('show', ['book'=>$book, 'titulo'=>$book->titulo]);
+        return view('show', ['book'=>$book, 'titulo'=>$book->titulo, 'userReservation' => $userReservation]);
     }
 }

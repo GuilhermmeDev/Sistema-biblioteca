@@ -25,6 +25,27 @@
         @else 
             <p class="ndisponivel">Este livro não está disponível :(</p>
         @endif
+
+        @if($userReservation == null)
+            <form action="{{ route('reservation', ['id' => $book->id])}} " method="post"> {{--botao para realizar reserva--}}
+                @csrf
+                <button type="submit" class="btn btn-primary">Reservar</button>
+            </form>
+        @else
+            <button type="button" class="btn btn-secondary" disabled>Reservar</button> {{--botao desativado caso ja tenha feito ou dado erro na reserva--}}
+        @endif
+        @if(session('sucess') or session('Error'))
+        @endif
+
+        @if(session('sucess'))
+            <p class="disponivel">{{session('sucess')}}</p>  {{-- msg de sucesso --}}
+        @endif
+
+        @if(session('Error'))
+            <div class="alert alert-danger">
+                <p>{{session('Error')}}</p>  {{-- msg de erro --}}
+            </div>
+        @endif
     </div>
 
 @endsection
