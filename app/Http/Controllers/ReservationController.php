@@ -24,7 +24,7 @@ class ReservationController extends Controller
             }
         }
 
-        return redirect()->back()->with('sucess', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
+        return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
 
     }
 }

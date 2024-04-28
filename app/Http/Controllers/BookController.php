@@ -63,10 +63,20 @@ class BookController extends Controller
     }
 
     public function show($id) {
-
-        $book = Book::findOrFail($id);
+        try {
+            $book = Book::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return redirect('/home')->with('Error', 'Livro não encontrado :(');
+        }
         $userReservation = Reservation::where('user_id', auth()->id())->first();
 
         return view('show', ['book'=>$book, 'titulo'=>$book->titulo, 'userReservation' => $userReservation]);
+    }
+
+    public function destroy($id) {
+
+        $book = Book::findOrFail($id)->delete();
+
+        return redirect('/home')->with('success', 'Livro excluído com sucesso!');
     }
 }

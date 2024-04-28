@@ -26,7 +26,7 @@
             <p class="ndisponivel">Este livro não está disponível :(</p>
         @endif
 
-        @if($userReservation == null)
+        @if($userReservation == null and $book->disponibilidade == 1)
             <form action="{{ route('reservation', ['id' => $book->id])}} " method="post"> {{--botao para realizar reserva--}}
                 @csrf
                 <button type="submit" class="btn btn-primary">Reservar</button>
@@ -34,17 +34,27 @@
         @else
             <button type="button" class="btn btn-secondary" disabled>Reservar</button> {{--botao desativado caso ja tenha feito ou dado erro na reserva--}}
         @endif
-        @if(session('sucess') or session('Error'))
-        @endif
 
-        @if(session('sucess'))
-            <p class="disponivel">{{session('sucess')}}</p>  {{-- msg de sucesso --}}
+        @if(session('success'))
+            <p class="disponivel">{{session('success')}}</p>  {{-- msg de sucesso --}}
         @endif
 
         @if(session('Error'))
             <div class="alert alert-danger">
                 <p>{{session('Error')}}</p>  {{-- msg de erro --}}
             </div>
+        @endif
+        @if(auth()->user()->level == 1)
+            <form action="{{$book->id}}/delete" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Excluir Livro</button>
+            </form>
+        @endif
+
+        @if($userReservation)
+            <p class="lead">Este livro está reservado para você!</p>
+            <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
         @endif
     </div>
 

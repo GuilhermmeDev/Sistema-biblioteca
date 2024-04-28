@@ -3,16 +3,19 @@
 
 @section('content')
 @if(session('msg'))
-<div class="alert alert-sucess">
-    <p class="msg">{{session('msg')}}</p>
-</div>
-@endif
-@if(session('Error'))
+    <div class="alert alert-sucess">
+        <p class="msg">{{session('msg')}}</p>
+    </div>
+@elseif(session('Error'))
     <div class="alert alert-danger">
         <p>{{session('Error')}}</p>
     </div>
-    
+@elseif(session('sucess'))
+    <div class="alert alert-success">
+        <p>{{session('sucess')}}</p>
+    </div>
 @endif
+
 <div class="container">
         <div class="row">
             @foreach ($book as $item)

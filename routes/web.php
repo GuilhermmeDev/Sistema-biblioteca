@@ -11,7 +11,8 @@ Route::get('/home', [BookController::class, 'index'])->middleware('auth')->name(
 Route::get('/create', [BookController::class, 'create'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('create');
 Route::POST('/store', [BookController::class, 'store'])->name('save');
 Route::get('/book/{id}', [BookController::class, 'show'])->name('show');
-Route::POST('/book/{id}/reserve', [ReservationController::class, 'reserve'])->name('reservation');
+Route::POST('/book/{id}/reserve', [ReservationController::class, 'reserve'])->middleware('auth')->name('reservation');
+Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('destroy');
 
 Auth::routes();
 
