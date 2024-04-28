@@ -26,7 +26,8 @@ class ReservationController extends Controller
         // lógica para diminuir a quantidade de livros (1) no banco de dados
 
         $lowBook = Book::where('id', $book_id)->first();
-        $lowBook->num_exemplares - 1;
+        $lowBook->num_exemplares = $lowBook->num_exemplares - 1;
+        $lowBook->save();
         return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
 
     }
@@ -38,6 +39,9 @@ class ReservationController extends Controller
 
         $reservation_cancel = Reservation::where('user_id', $user_id)->delete();
         if ($reservation_cancel > 0) {
+            $plusBook = Book::where('id', $book_id)->first();
+            $plusBook->num_exemplares = $plusBook->num_exemplares + 1;
+            $plusBook->save(); 
             return redirect()->back()->with('success', 'Reserva Cancelada com sucesso!');
         }
         return redirect()->back()->with('Error', 'Erro no cancelamento da reserva');
