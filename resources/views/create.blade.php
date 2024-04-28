@@ -17,26 +17,26 @@
             @csrf
             <div class="form-group">
                 <label for="title">Título do Livro <span class="obrigatorio">*</span></label>
-                <input type="text" class="form-control" name="title" required>
+                <input type="text" class="form-control" name="title" value="{{ old('title') }}" required>
                 <label for="genrer" >Gênero <span class="obrigatorio">*</span></label>
-                <input type="text" class="form-control" name="genrer" required>
+                <input type="text" class="form-control" name="genrer" value="{{ old('genrer') }}" required>
                 <label for="author">Autor <span class="obrigatorio">*</span></label>
-                <input type="text" class="form-control" name="author" required>
+                <input type="text" class="form-control" name="author" value="{{ old('author') }}" required>
                 <label for="sinopse">Sinopse <span class="obrigatorio">*</span></label>
                 <br>
-                <textarea name="sinopse" id="sinopse" rows="3" required></textarea> <br>
+                <textarea name="sinopse" id="sinopse" rows="3" value="{{ old('sinopse') }}" required></textarea> <br>
                 <label for="aval">Avaliação (0 a 10)</label>
-                <input type="number" class="form-control" name="aval" step="0.1" min="0" max="10">
+                <input type="number" class="form-control" name="aval" step="0.1" min="0" max="10" value="{{ old('aval') }}">
                 <label for="ano_lancamento">Ano lançamento <span class="obrigatorio">*</span></label>
-                <input type="number" class="form-control" name="ano_lancamento" required>
+                <input type="number" class="form-control" name="ano_lancamento" value="{{ old('ano_lancamento') }} required >
                 <label for="num_exemplares">Numero de exemplares <span class="obrigatorio">*</span></label>
-                <input type="number" class="form-control" name="num_exemplares" required>
+                <input type="number" class="form-control" name="num_exemplares" value="{{ old('num_exemplares') }} required>
                 <label for="num_paginas">Número de páginas <span class="obrigatorio">*</span></label>
-                <input type="number" name="num_paginas" class="form-control" required>
+                <input type="number" name="num_paginas" class="form-control" value="{{ old('num_paginas') }} required>
                 <label for="url_img">URL da capa do livro <span class="obrigatorio">*</span></label>
-                <input type="text" name="url_img" class="form-control" required>
+                <input type="text" name="url_img" class="form-control" value="{{ old('url_img') }}" required>
                 <label for="disponibilidade">Disponibilidade <span class="obrigatorio">*</span></label>
-                <select name="disponibilidade" id="disponibilidade" required>
+                <select name="disponibilidade" id="disponibilidade" value="{{ old('disponibilidade') }}" required>
                     <option value="0">Não</option>
                     <option value="1">Sim</option>
                 </select>

@@ -27,11 +27,24 @@ class BookController extends Controller
     }
 
     public function store(Request $request) {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'genrer' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'sinopse' => 'required|string|max:1000',
+            'aval' => 'numeric|regex:/^[1-9]\d*(\.\d+)?$/',
+            'ano_lancamento' => 'required|integer',
+            'num_exemplares' => 'required|integer',
+            'num_paginas' => 'required|integer',
+            'url_img' => 'required|string|max:255',
+            'disponibilidade' => 'required|boolean',
+        ]);
+
         $book = new Book;
         
         try {
             $verifyBookOccurrance = Book::where('titulo', $request->title)->firstOrFail();
-            return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente');
+            return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente')->withInput();
 
         } catch (ModelNotFoundException $e){
             $book->titulo = $request->title;

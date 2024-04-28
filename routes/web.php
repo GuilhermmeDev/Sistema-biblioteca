@@ -13,6 +13,7 @@ Route::POST('/store', [BookController::class, 'store'])->name('save');
 Route::get('/book/{id}', [BookController::class, 'show'])->name('show');
 Route::POST('/book/{id}/reserve', [ReservationController::class, 'reserve'])->middleware('auth')->name('reservation');
 Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('destroy');
+Route::delete('/book/{id}/cancel', [ReservationController::class, 'cancel'])->middleware('auth')->name('cancel.reservation');
 
 Auth::routes();
 

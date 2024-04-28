@@ -10,4 +10,8 @@ class Book extends Model
     use HasFactory;
 
     public $timestamps= FALSE;
+
+    public function reservations() {
+        return $this->hasMany('App\Models\Reservation');
+    }
 }

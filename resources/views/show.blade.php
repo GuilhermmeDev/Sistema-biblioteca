@@ -20,6 +20,8 @@
         <p class="ano_lancamento">Ano lancamento: {{$book->ano_lancamento}}</p>
         <p><small class="num_paginas">Numero de paginas: {{$book->num_paginas}}</small></p>
         <p class="lead">Sinopse: {{$book->sinopse}}</p>
+        <p class="exemplares">Numero de exemplares: {{$book->num_exemplares}}</p>
+
         @if($book->disponibilidade == 1)
             <p class="disponivel">Disponível para empréstimo</p>
         @else 
@@ -44,15 +46,24 @@
                 <p>{{session('Error')}}</p>  {{-- msg de erro --}}
             </div>
         @endif
+
         @if(auth()->user()->level == 1)
             <form action="{{$book->id}}/delete" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger" type="submit">Excluir Livro</button>
+                <button class="btn btn-danger" type="submit">Excluir Livro</button>  {{-- Botão para excluir livro apenas para admins --}}
             </form>
         @endif
 
-        @if($userReservation)
+        @if($userReservation != null)
+            <form action="{{$book->id}}/cancel" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Cancelar Reserva</button>  {{-- Botão de Cancelar a reserva do livro --}}
+            </form>
+        @endif
+
+        @if($userReservation and $userReservation->book_id == $book->id)
             <p class="lead">Este livro está reservado para você!</p>
             <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
         @endif

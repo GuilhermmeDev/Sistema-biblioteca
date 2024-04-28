@@ -23,8 +23,24 @@ class ReservationController extends Controller
                 return redirect()->back()->with('Error', 'Reserva já foi feita.');
             }
         }
+        // lógica para diminuir a quantidade de livros (1) no banco de dados
 
+        $lowBook = Book::where('id', $book_id)->first();
+        $lowBook->num_exemplares - 1;
         return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
+
+    }
+
+
+    public function cancel($book_id, Request $request) {
+
+        $user_id = auth()->user()->id;
+
+        $reservation_cancel = Reservation::where('user_id', $user_id)->delete();
+        if ($reservation_cancel > 0) {
+            return redirect()->back()->with('success', 'Reserva Cancelada com sucesso!');
+        }
+        return redirect()->back()->with('Error', 'Erro no cancelamento da reserva');
 
     }
 }
