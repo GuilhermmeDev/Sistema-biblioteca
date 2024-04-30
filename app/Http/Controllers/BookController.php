@@ -92,4 +92,16 @@ class BookController extends Controller
 
         return redirect('/home')->with('success', 'Livro excluído com sucesso!');
     }
+    
+    public function edit($id) {
+        $book = Book::findOrFail($id);
+        
+        return view('edit', ['book' => $book]);
+    }
+    
+    public function update(Request $request) {
+        $book = Book::findOrFail($request->id)->update($request->all());
+        
+        return redirect('/home')->with('success', 'Evento editado com sucesso');
+    }
 }

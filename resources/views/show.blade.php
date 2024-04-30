@@ -53,6 +53,8 @@
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Excluir Livro</button>  {{-- Botão para excluir livro apenas para admins --}}
             </form>
+
+            <a href="/book/edit/{{$book->id}}" class="btn btn-dark">Editar Livro</a>
         @endif
 
         @if($userReservation != null)
