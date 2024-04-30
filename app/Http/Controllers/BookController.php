@@ -43,28 +43,28 @@ class BookController extends Controller
         $book = new Book;
         
         try {
-            $verifyBookOccurrance = Book::where('titulo', $request->title)->firstOrFail();
+            $verifyBookOccurrance = Book::where('titulo', $request->titulo)->firstOrFail();
             return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente')->withInput();
 
         } catch (ModelNotFoundException $e){
-            $book->titulo = $request->title;
+            $book->titulo = $request->titulo;
         }
         
-        if ($request->aval < 0 or $request->aval > 10) {
-            return redirect('/create')->with('msg_fail', 'Avaliação inválida');
+        if ($request->avaliacao < 0 or $request->avaliacao > 10) {
+            return redirect('/create')->with('msg_fail', 'Avaliação inválida')->withInput();
         }
         
-        $book->avaliacao = $request->aval;
+        $book->avaliacao = $request->avaliacao;
         
         if ($request->ano_lancamento <= date('Y')) {
             $book->ano_lancamento = $request->ano_lancamento;
         }
         else {
-            return redirect('/create')->with('msg_fail', 'Ano de lançamento invalido');
+            return redirect('/create')->with('msg_fail', 'Ano de lançamento invalido')->withInput();
         }
         
-        $book->genero = $request->genrer;
-        $book->autor = $request->author;
+        $book->genero = $request->genero;
+        $book->autor = $request->autor;
         $book->sinopse = $request->sinopse;
         $book->num_exemplares = $request->num_exemplares;
         $book->num_paginas = $request->num_paginas;
@@ -102,6 +102,6 @@ class BookController extends Controller
     public function update(Request $request) {
         $book = Book::findOrFail($request->id)->update($request->all());
         
-        return redirect('/home')->with('success', 'Evento editado com sucesso');
+        return redirect('/home')->with('sucess', 'Livro editado com sucesso');
     }
 }

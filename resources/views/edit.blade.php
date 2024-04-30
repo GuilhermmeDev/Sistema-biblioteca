@@ -26,22 +26,22 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="title">Título do Livro <span class="obrigatorio">*</span></label>
-                <input type="text" class="form-control" name="title" value="{{ $book->titulo }}" required>
+                <label for="titulo">Título do Livro <span class="obrigatorio">*</span></label>
+                <input type="text" class="form-control" name="titulo" value="{{ $book->titulo }}" required>
 
-                <label for="genrer" >Gênero <span class="obrigatorio">*</span></label>
-                <input type="text" class="form-control" name="genrer" value="{{ $book->genero }}" required>
+                <label for="genero" >Gênero <span class="obrigatorio">*</span></label>
+                <input type="text" class="form-control" name="genero" value="{{ $book->genero }}" required>
 
-                <label for="author">Autor <span class="obrigatorio">*</span></label>
-                <input type="text" class="form-control" name="author" value="{{ $book->autor }}" required>
+                <label for="autor">Autor <span class="obrigatorio">*</span></label>
+                <input type="text" class="form-control" name="autor" value="{{ $book->autor }}" required>
 
                 <label for="sinopse">Sinopse <span class="obrigatorio">*</span></label>
                 <br>
                 <textarea name="sinopse" id="sinopse" rows="3" wrap="hard" class="form-control">{{$book->sinopse}}</textarea>
                 <br>
 
-                <label for="aval">Avaliação (0 a 10)</label>
-                <input type="number" class="form-control" name="aval" step="0.1" min="0" max="10" value="{{ $book->avaliacao }}">
+                <label for="avaliacao">Avaliação (0 a 10)</label>
+                <input type="number" class="form-control" name="avaliacao" step="0.1" min="0" max="10" value="{{ $book->avaliacao }}">
 
                 <label for="ano_lancamento">Ano lançamento <span class="obrigatorio">*</span></label>
                 <input type="number" class="form-control" name="ano_lancamento" value="{{ $book->ano_lancamento }}" required>
