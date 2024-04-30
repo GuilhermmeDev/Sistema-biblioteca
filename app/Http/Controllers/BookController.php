@@ -28,11 +28,11 @@ class BookController extends Controller
 
     public function store(Request $request) {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'genrer' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
+            'titulo' => 'required|string|max:255',
+            'genero' => 'required|string|max:255',
+            'autor' => 'required|string|max:255',
             'sinopse' => 'required|string|max:1000',
-            'aval' => 'numeric|regex:/^[1-9]\d*(\.\d+)?$/',
+            'avaliacao' => 'nullable|numeric|regex:/^[1-9]\d*(\.\d+)?$/',
             'ano_lancamento' => 'required|integer',
             'num_exemplares' => 'required|integer',
             'num_paginas' => 'required|integer',
