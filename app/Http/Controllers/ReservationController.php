@@ -32,13 +32,6 @@ class ReservationController extends Controller
         $lowBook->save();
         return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
     }
-    
-    public function teste() {
-        $teste = Reservation::where('reservation_expiration', '<=', \Carbon\Carbon::now())->delete();
-
-            $deletou = true;
-            return view('teste', ['teste' => $teste, 'deletou' => $deletou]);
-    }
 
 
     public function cancel($book_id, Request $request) {

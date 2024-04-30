@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\Reservation;
+use Illuminate\Support\Carbon;
 
 class DeleteReserveExpired extends Command
 {
@@ -26,7 +27,8 @@ class DeleteReserveExpired extends Command
      */
     public function handle()
     {
-        Reservation::where('reservation_expiration', '<=', \Carbon\Carbon::now())->delete();
+        Reservation::where('reservation_expiration', '<=', Carbon::now())->delete();
 
+        dd('Verificação 24 horas automática');
     }
 }
