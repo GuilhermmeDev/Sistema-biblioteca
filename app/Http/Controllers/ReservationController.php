@@ -8,8 +8,10 @@ use App\Models\Reservation;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 
+
 class ReservationController extends Controller
 {
+
     public function reserve($book_id, Request $request) { // id do livro e dados do user, respectivamente
 
         $reservation = new Reservation;
@@ -24,12 +26,18 @@ class ReservationController extends Controller
             }
         }
         // lógica para diminuir a quantidade de livros (1) no banco de dados
-
+        
         $lowBook = Book::where('id', $book_id)->first();
         $lowBook->num_exemplares = $lowBook->num_exemplares - 1;
         $lowBook->save();
         return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
+    }
+    
+    public function teste() {
+        $teste = Reservation::where('reservation_expiration', '<=', \Carbon\Carbon::now())->delete();
 
+            $deletou = true;
+            return view('teste', ['teste' => $teste, 'deletou' => $deletou]);
     }
 
 
