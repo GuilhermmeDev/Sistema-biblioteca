@@ -12,6 +12,9 @@
 </style>
 
 @section('content')
+@if(session('sucess'))
+    <p class="alert alert-success">{{session('sucess')}}</p>
+@endif
 
     <div class="container-fluid">
         <img src="{{$book->url_img}}" alt="Capa do livro {{$book->titulo}}" width="200" height="300">
@@ -56,16 +59,13 @@
 
             <a href="/book/edit/{{$book->id}}" class="btn btn-dark">Editar Livro</a>
         @endif
-
-        @if($userReservation != null)
+        
+        @if($userReservation and $userReservation->book_id == $book->id)
             <form action="{{$book->id}}/cancel" method="POST">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Cancelar Reserva</button>  {{-- Botão de Cancelar a reserva do livro --}}
             </form>
-        @endif
-
-        @if($userReservation and $userReservation->book_id == $book->id)
             <p class="lead">Este livro está reservado para você!</p>
             <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
         @endif

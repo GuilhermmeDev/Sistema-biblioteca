@@ -100,8 +100,12 @@ class BookController extends Controller
     }
     
     public function update(Request $request) {
+
         $book = Book::findOrFail($request->id)->update($request->all());
-        
-        return redirect('/home')->with('sucess', 'Livro editado com sucesso');
+
+        if ($book and $request->disponibilidade == false) {
+            Reservation::where('book_id', $request->id)->delete();
+        }
+        return redirect(url('/book/' . $request->id))->with('sucess', 'Livro editado com sucesso');
     }
 }
