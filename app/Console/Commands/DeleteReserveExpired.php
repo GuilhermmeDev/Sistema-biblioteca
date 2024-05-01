@@ -20,7 +20,7 @@ class DeleteReserveExpired extends Command
      *
      * @var string
      */
-    protected $description = 'Exclude Expired Reserves';
+    protected $description = 'Exclui as reservas com mais de 24 horas';
 
     /**
      * Execute the console command.
@@ -29,6 +29,6 @@ class DeleteReserveExpired extends Command
     {
         Reservation::where('reservation_expiration', '<=', Carbon::now())->delete();
 
-        dd('Verificação 24 horas automática');
+        dd('Verificação 24 horas automática das reservas');
     }
 }

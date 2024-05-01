@@ -21,7 +21,8 @@ class ApplyFine extends Command
      *
      * @var string
      */
-    protected $description = 'Aplicar multa aos usuários que possuem a data de devolução na tabela loans maior que a data atual';
+    protected $description = 'Aplicar multa aos usuários que possuem a data de devolução na tabela loans 
+    maior que a data atual e marcá-los como pendentes';
 
     /**
      * Execute the console command.
@@ -30,6 +31,10 @@ class ApplyFine extends Command
     {
         $PendentsLoans = DB::table('loans')
         ->join('users', 'loans.user_id', '=', 'users.id')
-        ->where('loans.devolution_date', '<=', Carbon::now())->update(['users.credibility' => DB::raw('users.credibility - 10'), 'loans.status' => 'pendente']);
+        ->where('loans.status', '!=', 'devolvido')
+        ->where('loans.devolution_date', '<=', Carbon::now())
+        ->update(['users.credibility' => DB::raw('users.credibility - 10'), 'loans.status' => 'pendente']);
+
+        dd('Aplicando multa aos pendentes...');
     }
 }

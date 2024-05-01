@@ -56,7 +56,7 @@ class ReservationController extends Controller
     public function requests() {
         $requestsReserves = Reservation::all();
 
-        return view('requests', ['requests' => $requestsReserves]);
+        return view('admin.requests', ['requests' => $requestsReserves]);
     }
 
     public function validateReserve($id) {

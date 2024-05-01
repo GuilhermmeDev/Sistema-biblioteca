@@ -12,9 +12,6 @@
 </style>
 
 @section('content')
-@if(session('sucess'))
-    <p class="alert alert-success">{{session('sucess')}}</p>
-@endif
 
     <div class="container-fluid">
         <img src="{{$book->url_img}}" alt="Capa do livro {{$book->titulo}}" width="200" height="300">

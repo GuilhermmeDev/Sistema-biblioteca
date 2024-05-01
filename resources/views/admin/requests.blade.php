@@ -6,7 +6,7 @@
         margin: 15px;
     }
 </style>
-@if ($requests)
+@if ($requests->count() > 0)
     <table class="table">
         <thead>
             <tr>
@@ -33,5 +33,9 @@
             @endforeach
         </tbody>
     </table>
+
+    
+@elseif($requests->count() == 0) 
+    <h3>Nenhum pedido de reserva no momento.</h3>
 @endif
 @endsection

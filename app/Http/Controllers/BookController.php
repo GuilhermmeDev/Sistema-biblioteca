@@ -24,7 +24,7 @@ class BookController extends Controller
     }
 
     public function create() {
-        return view('create');
+        return view('admin.create');
     }
 
     public function store(Request $request) {
@@ -87,7 +87,7 @@ class BookController extends Controller
         $user_id = auth()->id();
         $userReservation = Reservation::where('user_id', $user_id)->first();
 
-        $userLoan = Loan::where('user_id' ,$user_id)->first();  // procura alguma ocorrência de emprestimo já cadastrado no BD.
+        $userLoan = Loan::where('user_id' ,$user_id)->where('status', '!=', 'devolvido')->first();  // procura alguma ocorrência de emprestimo já cadastrado no BD.
         
         return view('show', ['book'=>$book, 'titulo'=>$book->titulo, 'userReservation' => $userReservation, 'userLoan' => $userLoan]);
     }
@@ -102,7 +102,7 @@ class BookController extends Controller
     public function edit($id) {
         $book = Book::findOrFail($id);
         
-        return view('edit', ['book' => $book]);
+        return view('admin.edit', ['book' => $book]);
     }
     
     public function update(Request $request) {

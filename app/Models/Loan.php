@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loan extends Model
 {
+    use HasFactory;
+    protected $fillable = [
+        'status',
+    ];
+
     public function book() {
         return $this->belongsTo('App\Models\Book');
     }
@@ -14,6 +19,4 @@ class Loan extends Model
     public function user() {
         return $this->belongsTo('App\Models\User');
     }
-
-    use HasFactory;
 }
