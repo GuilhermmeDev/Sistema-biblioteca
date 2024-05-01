@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Loan;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Reservation;
 
@@ -76,14 +77,19 @@ class BookController extends Controller
     }
 
     public function show($id) {
+
         try {
             $book = Book::findOrFail($id);
         } catch (ModelNotFoundException $e) {
             return redirect('/home')->with('Error', 'Livro não encontrado :(');
         }
-        $userReservation = Reservation::where('user_id', auth()->id())->first();
 
-        return view('show', ['book'=>$book, 'titulo'=>$book->titulo, 'userReservation' => $userReservation]);
+        $user_id = auth()->id();
+        $userReservation = Reservation::where('user_id', $user_id)->first();
+
+        $userLoan = Loan::where('user_id' ,$user_id)->first();  // procura alguma ocorrência de emprestimo já cadastrado no BD.
+        
+        return view('show', ['book'=>$book, 'titulo'=>$book->titulo, 'userReservation' => $userReservation, 'userLoan' => $userLoan]);
     }
 
     public function destroy($id) {

@@ -25,6 +25,8 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
+
+                
                 @guest
                 <li class="nav-item">
                   <a class="nav-link" href="/register">Cadastrar-se</a>
@@ -33,10 +35,13 @@
                   <a class="nav-link" href="/login">Login</a>
                 </li>
                 @endguest
+
+
                 @auth
                 <li class="nav-item">
                   <p class="nav-link">Olá, {{Auth::user()->name}}!</p>
                 </li>
+
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                 </form>
@@ -45,20 +50,23 @@
                   onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">Logout</a>
                   </li>
+
+
                   @if(Auth::user()->level == 1)
                   <li class="nav-item active">
                     <a class="nav-link" href="/reserve/requests">Pedidos de Reservas</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="/create">Cadastrar Livro</a>
-                    </li>
+                  </li>
                   @endif
+
+
                 @endauth
               </ul>
             </div>
           </nav>
 
         @yield('content')
-        
     </body>
 </html>

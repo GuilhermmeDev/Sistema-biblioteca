@@ -31,7 +31,7 @@
             <p class="ndisponivel">Este livro não está disponível :(</p>
         @endif
 
-        @if($userReservation == null and $book->disponibilidade == 1)
+        @if($userReservation == null and $book->disponibilidade == 1 and !$userLoan)
             <form action="{{ route('reservation', ['id' => $book->id])}} " method="post"> {{--botao para realizar reserva--}}
                 @csrf
                 <button type="submit" class="btn btn-primary">Reservar</button>
@@ -69,6 +69,16 @@
             <p class="lead">Este livro está reservado para você!</p>
             <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
         @endif
+        
+        @if($userLoan and $userLoan->book_id == $book->id)
+            <p class="lead">Você está com este livro!</p>
+            <p class="lead">Entregue-o até dia {{\Carbon\Carbon::parse($userLoan->devolution_date)->format('d/m')}}</p>
+        
+        @elseif($userLoan and $userLoan->book_id != $book->id)
+            <p class="lead">Você já pegou o livro <a href="/book/{{$userLoan->book_id}}">{{$userLoan->book->titulo}}</a>, devolva-o para reserva esse.</p>
+        
+        @endif
+
     </div>
 
 @endsection
