@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Loan;
 use App\Models\Reservation;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
@@ -46,6 +48,28 @@ class ReservationController extends Controller
             return redirect()->back()->with('success', 'Reserva Cancelada com sucesso!');
         }
         return redirect()->back()->with('Error', 'Erro no cancelamento da reserva');
+
+    }
+
+    public function requests() {
+        $requestsReserves = Reservation::all();
+
+        return view('requests', ['requests' => $requestsReserves]);
+    }
+
+    public function validateReserve($id) {
+        $reservation = Reservation::find($id)->first();
+        $loan = new Loan;
+        $loan->user_id = $reservation->user_id;
+        $loan->book_id = $reservation->book_id;
+        $loan->devolution_date = Carbon::now()->addDays(7);
+        $loan->status = 'em andamento';
+
+        $loan->save(); // Salva o empréstimo no BD
+
+        $reservation->delete(); // deleta a reserva no BD
+
+        return redirect()->back()->with('sucess', 'Reserva validada com sucesso. Agora é um empréstimo.');
 
     }
 }

@@ -16,7 +16,8 @@ Route::delete('/book/{id}/delete', [BookController::class, 'destroy'])->middlewa
 Route::delete('/book/{id}/cancel', [ReservationController::class, 'cancel'])->middleware('auth')->name('cancel.reservation');
 Route::get('/book/edit/{id}', [BookController::class, 'edit'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('edit.book');
 Route::put('/book/update/{id}', [BookController::class, 'update'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('update');
-
+Route::get('/reserve/requests', [ReservationController::class, 'requests'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('requests.reserves');
+Route::post('/reserve/requests/validate/{id}', [ReservationController::class, 'validateReserve'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('requests.validate');
 
 Auth::routes();
 
