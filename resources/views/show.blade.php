@@ -41,7 +41,7 @@
         @endif
 
         @if(session('success'))
-            <p class="disponivel">{{session('success')}}</p>  {{-- msg de sucesso --}}
+            <p class="alert alert-success">{{session('success')}}</p>  {{-- msg de sucesso --}}
         @endif
 
         @if(session('Error'))

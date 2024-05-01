@@ -26,6 +26,8 @@ class ReservationController extends Controller
             if ($e->errorInfo[1] == 1062) { // tratamento de erro de violação de chave unica do user
                 return redirect()->back()->with('Error', 'Reserva já foi feita.');
             }
+            
+            return redirect()->back()->with('Error', 'Alguma coisa deu errado' . $e);
         }
         // lógica para diminuir a quantidade de livros (1) no banco de dados
         
@@ -69,7 +71,7 @@ class ReservationController extends Controller
 
         $reservation->delete(); // deleta a reserva no BD
 
-        return redirect()->back()->with('sucess', 'Reserva validada com sucesso. Agora é um empréstimo.');
+        return redirect()->back()->with('success', 'Reserva validada com sucesso. Agora é um empréstimo.');
 
     }
 }

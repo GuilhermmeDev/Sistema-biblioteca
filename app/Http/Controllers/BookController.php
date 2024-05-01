@@ -73,7 +73,7 @@ class BookController extends Controller
         $book->disponibilidade = $request->disponibilidade;
         
         $book->save();
-        return redirect('/')->with('msg', 'Livro cadastrado com sucesso');
+        return redirect('/')->with('success', 'Livro cadastrado com sucesso');
     }
 
     public function show($id) {
@@ -112,6 +112,6 @@ class BookController extends Controller
         if ($book and $request->disponibilidade == false) {
             Reservation::where('book_id', $request->id)->delete();
         }
-        return redirect(url('/book/' . $request->id))->with('sucess', 'Livro editado com sucesso');
+        return redirect(url('/book/' . $request->id))->with('success', 'Livro editado com sucesso');
     }
 }

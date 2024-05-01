@@ -10,9 +10,9 @@
     <div class="alert alert-danger">
         <p>{{session('Error')}}</p>
     </div>
-@elseif(session('sucess'))
+@elseif(session('success'))
     <div class="alert alert-success">
-        <p>{{session('sucess')}}</p>
+        <p>{{session('success')}}</p>
     </div>
 @endif
 
