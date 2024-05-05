@@ -33,7 +33,7 @@ class BookController extends Controller
             'genero' => 'required|string|max:255',
             'autor' => 'required|string|max:255',
             'sinopse' => 'required|string|max:1000',
-            'avaliacao' => 'nullable|numeric|regex:/^[1-9]\d*(\.\d+)?$/',
+            'avaliacao' => 'nullable|numeric|between:0,5',
             'ano_lancamento' => 'required|integer',
             'num_exemplares' => 'required|integer',
             'num_paginas' => 'required|integer',

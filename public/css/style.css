@@ -29,3 +29,15 @@
     background-color: #edd4d8;
     color: #57152e;
 }
+
+.alert_div {
+    font-family: "Poppins";
+    color: red;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.alert_div img {
+    width: 15px;
+    color: red;
+}
