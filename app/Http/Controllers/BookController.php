@@ -34,13 +34,13 @@ class BookController extends Controller
             'autor' => 'required|string|max:255',
             'sinopse' => 'required|string|max:1000',
             'avaliacao' => 'nullable|numeric|between:0,5',
-            'ano_lancamento' => 'required|integer',
-            'num_exemplares' => 'required|integer',
-            'num_paginas' => 'required|integer',
+            'ano_lancamento' => 'required|min:0|integer',
+            'num_exemplares' => 'required|min:0|integer',
+            'num_paginas' => 'required|min:1|integer',
             'url_img' => 'required|string|max:255',
             'disponibilidade' => 'required|boolean',
         ]);
-
+        
         $book = new Book;
         
         try {
@@ -73,7 +73,10 @@ class BookController extends Controller
         $book->disponibilidade = $request->disponibilidade;
         
         $book->save();
-        return redirect('/')->with('success', 'Livro cadastrado com sucesso');
+
+        return redirect('/')->with('success', 'Livro ' . $request->titulo . ' cadastrado com sucesso!');
+
+        
     }
 
     public function show($id) {

@@ -37,10 +37,6 @@
             <button type="button" class="btn btn-secondary" disabled>Reservar</button> {{--botao desativado caso ja tenha feito ou dado erro na reserva--}}
         @endif
 
-        @if(session('success'))
-            <p class="alert alert-success">{{session('success')}}</p>  {{-- msg de sucesso --}}
-        @endif
-
         @if(session('Error'))
             <div class="alert alert-danger">
                 <p>{{session('Error')}}</p>  {{-- msg de erro --}}

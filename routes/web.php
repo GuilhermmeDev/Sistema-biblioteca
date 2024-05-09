@@ -12,7 +12,7 @@ Route::get('/home', [BookController::class, 'index'])->middleware('auth')->name(
 
 // Book Routes
 Route::get('/create', [BookController::class, 'create'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('create');
-Route::POST('/store', [BookController::class, 'store'])->name('save');
+Route::POST('/store', [BookController::class, 'store'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('save');
 Route::get('/book/{id}', [BookController::class, 'show'])->name('show')->middleware('auth');
 Route::POST('/book/{id}/reserve', [ReservationController::class, 'reserve'])->middleware('auth')->name('reservation');
 Route::DELETE('/book/{id}/delete', [BookController::class, 'destroy'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('destroy');
