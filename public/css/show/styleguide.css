@@ -1,0 +1,12 @@
+:root {
+  --cor-primaria: rgba(64, 90, 148, 1);
+  --cor-secundaria: rgba(120, 137, 179, 1);
+  --cor-terciaria: rgba(156, 185, 192, 1);
+  --branco-gelo: rgba(232, 237, 237, 1);
+  --fonte-principal-font-family: "Poppins", Helvetica;
+  --fonte-principal-font-weight: 400;
+  --fonte-principal-font-size: 24px;
+  --fonte-principal-letter-spacing: 0px;
+  --fonte-principal-line-height: normal;
+  --fonte-principal-font-style: normal;
+}

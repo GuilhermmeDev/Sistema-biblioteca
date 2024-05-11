@@ -1,0 +1,324 @@
+body {
+  position: fixed;
+}
+.tela-de-livro {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 900px;
+  max-width: 1920px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.tela-de-livro .frame {
+  display: flex;
+  width: 1920px;
+  height: 107px;
+  align-items: center;
+  gap: 107px;
+  padding: 0px 6px 0px 108px;
+  position: relative;
+  margin-left: -10px;
+}
+
+.tela-de-livro .vector {
+  position: relative;
+  width: 29px;
+  height: 28px;
+}
+
+.tela-de-livro .LBRIYS {
+  position: relative;
+  width: 200px;
+  height: 71px;
+  object-fit: cover;
+}
+
+.tela-de-livro .div {
+  display: inline-flex;
+  align-items: center;
+  gap: 758px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+
+
+.tela-de-livro .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -10.5px;
+  margin-bottom: -8.5px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #9a9a9a;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.tela-de-livro .img {
+  position: relative;
+  width: 20.31px;
+  height: 20.31px;
+  margin-top: -7.66px;
+  margin-bottom: -7.66px;
+}
+
+.tela-de-livro .frame-2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.tela-de-livro .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #405a94;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  justify-content: center;
+}
+
+.tela-de-livro .vector-2 {
+  position: relative;
+  margin-top: -1px;
+  width: 16px;
+  height: 24px;
+  justify-content: center;
+  margin-right: 50px;
+  
+}
+
+.tela-de-livro .container-5 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1731px;
+  align-items: center;
+  gap: 100px 50px;
+  position: relative;
+}
+
+.tela-de-livro .container-4 {
+  display: flex;
+  flex-direction: column;
+  width: 415px;
+  height: 851px;
+  align-items: center;
+  gap: 63px;
+  position: relative;
+  margin-top: -24.5px;
+  margin-bottom: -24.5px;
+}
+
+.tela-de-livro .container-princ {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.tela-de-livro .titulo {
+  position: relative;
+  width: 369px;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.tela-de-livro .OBJECTS {
+  position: relative;
+  width: 384px;
+  height: 576px;
+}
+
+.tela-de-livro .disponibilidade {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.tela-de-livro .container-1 {
+  display: flex;
+  flex-direction: column;
+  width: 942px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.tela-de-livro .container-2 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  gap: 355px;
+  padding: 18px 0px 0px;
+  position: relative;
+}
+
+.tela-de-livro .container-3 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 19px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.tela-de-livro .item-book {
+  position: relative;
+  width: 404px;
+  height: 28px;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  color: var(--cor-primaria);
+}
+
+.resp {
+  color: black;
+}
+
+.lembrete {
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.tela-de-livro .frame-9 {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.tela-de-livro .sinopse {
+  position: relative;
+  margin-bottom: 100px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 18px;
+  background-color: var(--branco-gelo);
+  line-height: normal;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.tela-de-livro .botao-reserva {
+  display: flex;
+  flex-wrap: wrap;
+  width: 143px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 0px;
+  position: relative;
+  border-radius: 24px;
+}
+
+.btn_book {
+  font-family: "Poppins";
+  font-size: 16px;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.tela-de-livro .text-wrapper-9 {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.botao-reserva {
+  display: inline-block;
+}
+
+.botao-reserva button {
+  background-color: #405A94;
+  border: none;
+  color: white; /* Para garantir que o texto seja azul */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.input-pesquisa input[type="text"] {
+  border-radius: 16px;
+  width: 390px;
+  height: 48px;
+  background-color: #E8EDED;
+  text-align: center;
+  outline: none;
+  border: none;
+}
+
+.seta {
+  border: none;
+  background-image: none;
+  background: none;
+}
+
+button:active{
+  background: none;
+  background-image: none;
+}
+
+.usua {
+  background: none;
+  border: none;
+  color: #405A94;
+  font-size: 16px;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 64px;
+}
+
+.message {
+  background-color: var(--branco-gelo);
+  border-radius: 16px;
+  padding: 10px 20px;
+  font-family: "Poppins";
+}
+
+.disponibilidade {
+  background-color: var(--branco-gelo);
+  padding: 10px 20px;
+  border-radius: 16px;
+}
+
+
+

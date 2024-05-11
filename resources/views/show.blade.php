@@ -1,77 +1,80 @@
-@extends('layouts.main')
-
-@section('title', $titulo)
-
-<style>
-    .disponivel {
-    color: #25ce4d;
-    }
-    .ndisponivel {
-        color: #b3235a;
-    }
-</style>
-
+@extends('layouts.navbar')
 @section('content')
-
-    <div class="container-fluid">
-        <img src="{{$book->url_img}}" alt="Capa do livro {{$book->titulo}}" width="200" height="300">
-        <h1 class="titulo">{{$book->titulo}}</h1>
-        <h5 class="autor">Autor: {{$book->autor}}</h5>
-        <p class="ano_lancamento">Ano lancamento: {{$book->ano_lancamento}}</p>
-        <p><small class="num_paginas">Numero de paginas: {{$book->num_paginas}}</small></p>
-        <p class="lead">Sinopse: {{$book->sinopse}}</p>
-        <p class="exemplares">Numero de exemplares: {{$book->num_exemplares}}</p>
-
-        @if($book->disponibilidade == 1)
-            <p class="disponivel">Disponível para empréstimo</p>
-        @else 
-            <p class="ndisponivel">Este livro não está disponível :(</p>
-        @endif
-
-        @if($userReservation == null and $book->disponibilidade == 1 and !$userLoan)
-            <form action="{{ route('reservation', ['id' => $book->id])}} " method="post"> {{--botao para realizar reserva--}}
-                @csrf
-                <button type="submit" class="btn btn-primary">Reservar</button>
-            </form>
-        @else
-            <button type="button" class="btn btn-secondary" disabled>Reservar</button> {{--botao desativado caso ja tenha feito ou dado erro na reserva--}}
-        @endif
-
-        @if(session('Error'))
-            <div class="alert alert-danger">
-                <p>{{session('Error')}}</p>  {{-- msg de erro --}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{asset('css/show/globals.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/show/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/show/styleguide.css')}}" />
+  </head>
+  <body>
+    <div class="tela-de-livro">
+        <div class="container-5">
+            <div class="container-4">
+                @if(session('success'))
+                    <p class="message">{{session('success')}}</p>
+                @endif
+            <div class="container-princ">
+              <div class="titulo">{{$book->titulo}}</div>
+              <img class="OBJECTS" src="{{$book->url_img}}"/>
             </div>
-        @endif
-
-        @if(auth()->user()->level == 1)
-            <form action="{{$book->id}}/delete" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Excluir Livro</button>  {{-- Botão para excluir livro apenas para admins --}}
-            </form>
-
-            <a href="/book/edit/{{$book->id}}" class="btn btn-dark">Editar Livro</a>
-        @endif
-        
-        @if($userReservation and $userReservation->book_id == $book->id)
-            <form action="{{$book->id}}/cancel" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Cancelar Reserva</button>  {{-- Botão de Cancelar a reserva do livro --}}
-            </form>
-            <p class="lead">Este livro está reservado para você!</p>
-            <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
-        @endif
-        
-        @if($userLoan and $userLoan->book_id == $book->id)
-            <p class="lead">Você está com este livro!</p>
-            <p class="lead">Entregue-o até dia {{\Carbon\Carbon::parse($userLoan->devolution_date)->format('d/m')}}</p>
-        
-        @elseif($userLoan and $userLoan->book_id != $book->id)
-            <p class="lead">Você já pegou o livro <a href="/book/{{$userLoan->book_id}}">{{$userLoan->book->titulo}}</a>, devolva-o para reserva esse.</p>
-        
-        @endif
-
-    </div>
-
+            @if($book->disponibilidade == 1)
+                <div class="disponibilidade">Disponível</div>
+            @elseif($book->disponibilidade == 0)
+                <div class="disponibilidade">Não Disponível</div>
+            @endif
+          </div>
+          <div class="container-1">
+            <div class="container-2">
+              <div class="container-3">
+                <div class="item-book">Autor: <span class="resp">{{$book->autor}}</span></div>
+                <div class="item-book">Ano de Lançamento: <span class="resp">{{$book->ano_lancamento}}</span></div>
+                <div class="item-book">Número de Páginas: <span class="resp">{{$book->num_paginas}}</span></div>
+                <div class="item-book">Genero: <span class="resp">{{$book->genero}}</span></div>
+                <div class="item-book">Sinopse:</div>
+              </div>
+            </div>
+            <p class="sinopse">
+              {{$book->sinopse}}
+            </p>
+            <div class="buttons-container">
+                @if($userReservation == null and $userLoan == null and $book->disponibilidade == 1)
+                    <form action="{{route('reservation', ['id' => $book->id])}}" method="POST" class="botao-reserva">
+                        @csrf
+                        <button type="submit" class="text-wrapper-9">Reservar</button>
+                    </form>
+    
+                @elseif($userReservation and $userReservation->book->id == $book->id)
+                    <form action="{{route('cancel.reservation', ['id' => $book->id])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn_book">Cancelar Reserva</button>
+                    </form>
+                @elseif($userReservation)
+                    <button class=" btn btn-secondary btn_book">Cancelar Reserva</button>
+                @elseif($userLoan and $userLoan->book->id == $book->id)
+                    <p class="lembrete">Você está com este livro, entregue-o para fazer outra reserva</p>
+                    <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
+                @elseif($userLoan)
+                    <p class="lembrete">Você está com o livro <a href="{{$userLoan->book->id}}" class="item-book">{{$userLoan->book->titulo}}</a>, 
+                        entregue-o para fazer outra reserva</p>
+                @endif
+    
+                @if(auth()->user()->level == 1)
+                    <form action="{{route('destroy', ['id' => $book->id])}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn_book">Excluir Livro</button>
+                    </form>
+                    <form action="{{route('edit.book', ['id' => $book->id])}}">
+                        <button type="submit" class="btn btn-dark btn_book">Editar Livro</button>
+                    </form>
+                @endif
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
 @endsection

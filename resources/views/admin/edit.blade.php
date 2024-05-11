@@ -1,4 +1,4 @@
-@extends('layouts.create-edit')
+@extends('layouts.navbar')
 @section('title', 'Editando ' . $book->titulo)
 @section('content')
 
