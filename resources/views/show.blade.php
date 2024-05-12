@@ -1,14 +1,10 @@
 @extends('layouts.navbar')
+
+<link rel="stylesheet" href="{{asset('css/show/globals.css')}}" />
+<link rel="stylesheet" href="{{asset('css/show/style.css')}}" />
+<link rel="stylesheet" href="{{asset('css/show/styleguide.css')}}" />
+@section('title', $book->titulo)
 @section('content')
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{{asset('css/show/globals.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/show/style.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/show/styleguide.css')}}" />
-  </head>
-  <body>
     <div class="tela-de-livro">
         <div class="container-5">
             <div class="container-4">
@@ -75,6 +71,4 @@
           </div>
         </div>
       </div>
-  </body>
-</html>
 @endsection

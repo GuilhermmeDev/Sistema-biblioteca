@@ -93,7 +93,10 @@
 
             <div class="input-wrapper">
                 <label for="url_img" class="text-wrapper-4">URL da capa do livro<span class="obrigatorio">*</span></label>
-                <input type="url" max="255" id="url_img" name="url_img" class="rectangle" value="{{$book->url_img}}">
+                <input type="text" max="255" id="url_img" name="url_img" class="rectangle" value="{{$book->url_img}}">
+                <div id="container_list">
+
+                </div>
                 @error('url_img')
                 <div class="error">
                     <h1><img src="imgs/error-warning-line.svg" alt="error">{{ $message }}</h1>
@@ -115,4 +118,6 @@
         </form>
     </div>
 </div>
+<script src="{{asset('js/get-api.js')}}"></script>
+
 @endsection

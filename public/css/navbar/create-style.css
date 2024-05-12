@@ -291,3 +291,7 @@
     margin-right: 5px;
   }
   
+  .container_list {
+    height: 500px;
+    overflow-y: scroll;
+  }
