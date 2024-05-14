@@ -35,6 +35,6 @@ class ApplyFine extends Command
         ->where('loans.devolution_date', '<=', Carbon::now())
         ->update(['users.credibility' => DB::raw('users.credibility - 10'), 'loans.status' => 'pendente']);
 
-        dd('Aplicando multa aos pendentes...');
+        $this->info('Aplicando multa aos pendentes...');
     }
 }

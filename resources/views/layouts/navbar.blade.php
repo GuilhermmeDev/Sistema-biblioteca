@@ -21,9 +21,7 @@
                 <div class="frame-2">
                 <a href="/"><img class="vector" src="{{asset('imgs/arrow-line-left.svg')}}"/> <img class="LYBRIS" src="{{asset('imgs/LYBRIS.svg')}}"/></a>
                 </div>
-                @if(request()->url() == url('/'))
-                    <div class="text-wrapper">HomePage</div>
-                @elseif(request()->url() == url('/create'))
+                @if(request()->url() == url('/create'))
                     <div class="text-wrapper">Cadastro de Livro</div>
                 @elseif(request()->url() == url('book/edit/' . $book->id))
                     <div class="text-wrapper">Editando {{$book->titulo}}</div>

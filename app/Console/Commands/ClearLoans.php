@@ -27,6 +27,6 @@ class ClearLoans extends Command
     public function handle()
     {
         Loan::where('status', 'devolvido')->delete();
-        dd('Limpando a tabela de Empréstimos devolvidos');
+        $this->info('deu certo!');
     }
 }

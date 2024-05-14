@@ -231,7 +231,7 @@
     align-items: center;
   }
   
-  .disponibilidade-label {
+  #disponibilidade, .disponibilidade-label {
     position: relative;
     width: fit-content;
     font-family: "Poppins", Helvetica;

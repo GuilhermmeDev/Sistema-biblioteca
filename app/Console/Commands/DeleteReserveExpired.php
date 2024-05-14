@@ -32,8 +32,6 @@ class DeleteReserveExpired extends Command
         ->update(['books.num_exemplares' => DB::raw('books.num_exemplares + 1')]);
 
         Reservation::where('reservation_expiration', '<=', Carbon::now())->delete();
-
-        dd('Verificação 24 horas automática das reservas');
-        echo "Verificação 24 horas automática das reservas";
+        $this->info('deu certo!');
     }
 }

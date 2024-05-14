@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Schedule;
 
 Schedule::command('DeleteReserveExpired')->everyMinute();
 Schedule::command('ApplyFine')->everyMinute();
-Schedule::command('ClearLoans')->weekly();
+Schedule::command('ClearLoans')->daily();
