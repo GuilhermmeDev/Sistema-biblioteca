@@ -3,6 +3,7 @@ body {
 }
 .tela-de-livro {
   display: flex;
+  margin-top: 3em;
   flex-wrap: wrap;
   min-width: 900px;
   max-width: 1920px;
@@ -102,6 +103,7 @@ body {
   flex-wrap: wrap;
   width: 1731px;
   align-items: center;
+  justify-content: center;
   gap: 100px 50px;
   position: relative;
 }

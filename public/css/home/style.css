@@ -1,0 +1,68 @@
+
+
+.anuncio_livro {
+    width: 100%;
+    height: 10em;
+    background-color: #E8EDED;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container_img_anuncio {
+    height: 100%;
+}
+
+.anuncio_img {
+    width: 100%;
+    height: 100%;
+}
+
+.anuncio_botao {
+    padding: 20px 30px;
+    border-radius: 16px;
+    border: none;
+    background-color: #405A94;
+    color: white;
+    font-size: 16px;
+}
+
+
+.anuncio_botao:hover {
+    background-color: #7889B3;
+    color: white;
+}
+
+.container_sections {
+    margin: 3em 2em;
+}
+
+.titulo_section {
+    font-size: 22px;
+    font-weight: 600;
+    font-family: "Poppins";
+}
+
+.swiper {
+    margin-top: 1em;
+    width: 100%;
+    height: 250px;
+}
+
+.book-img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-slide {
+    margin-top: 5em;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: black;
+}
+
+:root {
+    --swiper-navigation-size: 24px;
+}
+

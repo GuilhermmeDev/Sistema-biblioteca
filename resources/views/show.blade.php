@@ -49,6 +49,7 @@
                     </form>
                 @elseif($userReservation)
                     <button class=" btn btn-secondary btn_book">Cancelar Reserva</button>
+                    <p class="lembrete">Você reservou o livro <a href="{{$userReservation->book->id}}">{{$userReservation->book->titulo}}</a></p>
                 @elseif($userLoan and $userLoan->book->id == $book->id)
                     <p class="lembrete">Você está com este livro, entregue-o para fazer outra reserva</p>
                     <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>

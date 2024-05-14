@@ -20,7 +20,9 @@ class BookController extends Controller
     public function index(){
         $books = Book::all();
 
-        return view('home', ['book' => $books]);
+        $last_book = Book::orderBy('id', 'desc')->first();
+
+        return view('home', ['book' => $books, 'last_book' => $last_book]);
     }
 
     public function create() {
@@ -48,7 +50,8 @@ class BookController extends Controller
             return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente')->withInput();
 
         } catch (ModelNotFoundException $e){
-            $book->titulo = $request->titulo;
+            $titulo = strtoupper($request->titulo);
+            $book->titulo = $titulo;
         }
         
         if ($request->avaliacao < 0 or $request->avaliacao > 10) {
