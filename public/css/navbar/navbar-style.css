@@ -1,69 +1,105 @@
-h1 {
-  font-size: 20px;
+body {
+  background-color: #E8EDED;
 }
-
-.logout-button {
-  font-size: 16px;
-  color: rgba(120, 137, 179, 1);
-}
-
-.logout-button:hover {
-  color: rgba(120, 137, 179, 1);
-}
-
-.container_navbar {
-  font-family: "Poppins";
+.navbar {
   width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: #405a94;
-  flex-direction: row;
-}
-
-.container_buttons {
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1em;
 }
 
+.container_logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  margin-left: 50px;
+}
+
+.img_navbar {
+  width: auto;
+  height: 100%;
+}
+
+.container_actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-right: 1em;
+}
+
+.container_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  padding: 10px 15px;
+  border-radius: 24px;
+  margin-right: 20px;
+}
+
+.clicked {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #c4cdff69;
+  padding: 10px 15px;
+  border-radius: 24px;
+  margin-right: 20px;
+}
+
+.nav_icon {
+  width: 1.5em;
+}
+
+.botao_home {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 15px;
+  color: #405A94;
+  text-decoration: none;
+}
+
+.botao_home:hover {
+  text-decoration: none;
+}
 
 .container_user {
+  background-color: #c4cdff69;
+  padding: 0.5em;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.user_icon {
+  height: 2em;
+}
+
+#pesquisa {
+  padding: 10px;
+  border-radius: 10px; 
+  border: none;
+  width: 400px;
+  height: 20%;
+  font-size: 16px;
+  outline: none;
+}
+
+.search_icon {
+  margin-left: 1em;
+  height: 1.5em;
+}
+
+
+.container_input {
   display: flex;
   flex-direction: row;
+  align-items: center; 
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-left: 30px;
   gap: 1em;
-}
-
-.current {
-  color:#434e66;
-}
-
-.admin_button {
-  gap: 8px;
-  background-color: #405a94;
-  border-radius: 8px;
-  color: white;
-  padding: 10px 20px;
-}
-
-.admin_button:hover {
-  color:white;
-  background-color: #344c7e;
-}
-
-.admin_buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-}
-
-.msg {
-  border-radius: 8px;
-  margin-top: 50px;
-  padding: 20px;
-  width: 20%;
-  font-size: 18px;
-  background-color: #E8EDED;
 }

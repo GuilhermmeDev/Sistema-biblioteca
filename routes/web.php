@@ -25,7 +25,7 @@ Route::get('/reserve/requests', [ReservationController::class, 'requests'])->mid
 Route::POST('/reserve/requests/validate/{id}', [ReservationController::class, 'validateReserve'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('requests.validate');
 
 // Loans Routes
-Route::get('/loans', [LoansController::class, 'panel'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('requests.panel');
+Route::get('/loans', [LoansController::class, 'panel'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('loans.panel');
 Route::put('/loans/check/{id}', [LoansController::class, 'check'])->middleware('App\Http\Middleware\AdminMiddleWare')->name('requests.check');
 
 Auth::routes();

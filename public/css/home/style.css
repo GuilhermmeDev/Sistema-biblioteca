@@ -1,68 +1,116 @@
-
-
-.anuncio_livro {
-    width: 100%;
-    height: 10em;
-    background-color: #E8EDED;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.container_img_anuncio {
-    height: 100%;
-}
-
-.anuncio_img {
-    width: 100%;
-    height: 100%;
-}
-
-.anuncio_botao {
-    padding: 20px 30px;
-    border-radius: 16px;
-    border: none;
-    background-color: #405A94;
-    color: white;
-    font-size: 16px;
-}
-
-
-.anuncio_botao:hover {
-    background-color: #7889B3;
-    color: white;
-}
-
 .container_sections {
-    margin: 3em 2em;
+    margin-left: 1em;
+    margin-top: 3em;
+    height: fit-content;
 }
 
 .titulo_section {
-    font-size: 22px;
-    font-weight: 600;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
     font-family: "Poppins";
+}
+
+.modern_section {
+    width: fit-content;
+    background-color: #3537a3;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .swiper {
     margin-top: 1em;
     width: 100%;
-    height: 250px;
+    height: auto;
 }
 
-.book-img {
-    width: 100%;
-    height: 100%;
+.slide {
+    border-radius: 16px;
+    background-color: #ffffff;
+    padding: 5px 10px;
 }
+
+
 
 .container-slide {
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
 .swiper-button-next, .swiper-button-prev {
     color: black;
 }
 
+.container_book {
+    color: black;
+}
+
+.img_book {
+    width: 100%;
+    height: 18em;
+    border-radius: 16px;
+}
+
+.info_book {
+    font-family: "Poppins";
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1em 0;
+}
+
+.title_star {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.container_star {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+    align-items: center;
+}
+
+.avaliacao {
+    margin: 0;
+    font-size: 12px;
+}
+
+.star-icon {
+    width: 1em;
+    height: 1em;
+}
+
+.title_book {
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 400;
+}
+
+.author_book {
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 0.3em;
+    color: #6d749c;
+}
+
 :root {
     --swiper-navigation-size: 24px;
 }
 
+.ancor_book {
+    text-decoration: none;
+    color: none;
+}
+
+.ancor_book:hover {
+    text-decoration: none;
+    color: none;
+}
