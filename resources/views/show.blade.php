@@ -40,6 +40,7 @@
             </p>
             <div class="buttons-container">
                 @if($userReservation == null and $userLoan == null and $book->disponibilidade == 1)
+
                     <form action="{{route('reservation', ['id' => $book->id])}}" method="POST" class="botao-reserva">
                         @csrf
                         <button type="submit" class="text-wrapper-9">Reservar</button>

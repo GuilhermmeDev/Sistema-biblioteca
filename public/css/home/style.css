@@ -24,7 +24,7 @@
 
 .swiper {
     margin-top: 1em;
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -36,6 +36,10 @@
 }
 
 
+.swiper-slide {
+    width: 100%;
+    min-width: 180px;
+}
 
 .container-slide {
     margin-top: 2em;
@@ -51,6 +55,7 @@
 
 .img_book {
     width: 100%;
+    min-width: 64px;
     height: 18em;
     border-radius: 16px;
 }

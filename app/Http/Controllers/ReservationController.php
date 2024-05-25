@@ -16,10 +16,20 @@ class ReservationController extends Controller
 
     public function reserve($book_id, Request $request) { // id do livro e dados do user, respectivamente
 
+        $date = date('Y-m-d');
+
+        $todayNum = date('w', strtotime($date)); // verifica o dia da semana
+
         $reservation = new Reservation;
         $reservation->user_id = auth()->user()->id;
         $reservation->book_id = $book_id;
-        $reservation->reservation_expiration = Carbon::now()->addHours(24); // adiciona 24 horas a data atual
+        if ($todayNum != 6) {
+            $reservation->reservation_expiration = Carbon::now()->addHours(24); // adiciona 24 horas a data atual
+        }
+        else {
+            $reservation->reservation_expiration = Carbon::now()->addHours(48); // Se for sábado a expiração será a dois dias, se a biblioteca não abrir no domingo.
+        }
+
         try {
             $reservation->save();
         } catch (\Illuminate\Database\QueryException $e) {

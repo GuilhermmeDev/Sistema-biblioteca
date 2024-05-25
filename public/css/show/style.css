@@ -1,14 +1,11 @@
-body {
-  position: fixed;
-}
+
 .tela-de-livro {
   display: flex;
-  margin-top: 3em;
+  margin: 3em;
   flex-wrap: wrap;
-  min-width: 900px;
   max-width: 1920px;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
@@ -100,8 +97,6 @@ body {
 
 .tela-de-livro .container-5 {
   display: flex;
-  flex-wrap: wrap;
-  width: 1731px;
   align-items: center;
   justify-content: center;
   gap: 100px 50px;
@@ -111,12 +106,9 @@ body {
 .tela-de-livro .container-4 {
   display: flex;
   flex-direction: column;
-  width: 415px;
   align-items: center;
   gap: 63px;
   position: relative;
-  margin-top: -24.5px;
-  margin-bottom: -24.5px;
 }
 
 .tela-de-livro .container-princ {
@@ -133,18 +125,19 @@ body {
 
 .tela-de-livro .titulo {
   position: relative;
-  width: 369px;
+  width: 100%;
   margin-top: -1px;
   font-family: "Poppins", Helvetica;
   font-weight: 400;
   color: #000000;
-  font-size: 48px;
+  font-size: 40px;
   letter-spacing: 0;
   line-height: normal;
 }
 
 .tela-de-livro .OBJECTS {
   position: relative;
+  min-width: 128;
   width: 256px;
   height: 384px;
 }
@@ -163,7 +156,6 @@ body {
 .tela-de-livro .container-1 {
   display: flex;
   flex-direction: column;
-  width: 942px;
   align-items: flex-start;
   justify-content: flex-end;
   position: relative;
@@ -210,7 +202,6 @@ body {
 }
 .tela-de-livro .item-book {
   position: relative;
-  width: 404px;
   height: 28px;
   margin-top: -1px;
   font-family: "Poppins", Helvetica;

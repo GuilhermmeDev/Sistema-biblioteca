@@ -100,7 +100,7 @@ class BookController extends Controller
         $userReservation = Reservation::where('user_id', $user_id)->first();
 
         $userLoan = Loan::where('user_id' ,$user_id)->where('status', '!=', 'devolvido')->first();  // procura alguma ocorrência de emprestimo já cadastrado no BD.
-        
+
         return view('show', ['book'=>$book, 'titulo'=>$book->titulo, 'userReservation' => $userReservation, 'userLoan' => $userLoan]);
     }
 
