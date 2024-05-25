@@ -29,6 +29,7 @@
 }
 
 .slide {
+    height: fit-content;
     border-radius: 16px;
     background-color: #ffffff;
     padding: 5px 10px;

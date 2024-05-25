@@ -112,7 +112,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 415px;
-  height: 751px;
   align-items: center;
   gap: 63px;
   position: relative;
@@ -127,6 +126,9 @@ body {
   gap: 24px;
   position: relative;
   flex: 0 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
 }
 
 .tela-de-livro .titulo {
@@ -167,6 +169,16 @@ body {
   position: relative;
 }
 
+.container-1 {
+  background-color: white;
+  border-radius: 16px;
+  padding: 50px 30px;
+}
+
+.star_icon {
+  height: 90%;
+}
+
 .tela-de-livro .container-2 {
   display: flex;
   align-items: flex-start;
@@ -174,6 +186,18 @@ body {
   gap: 355px;
   padding: 18px 0px 0px;
   position: relative;
+}
+
+.avaliacao_value {
+  font-size: 16px;
+  margin-bottom: 0;
+  margin-left: .5em;
+}
+
+.avaliacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .tela-de-livro .container-3 {
@@ -184,7 +208,6 @@ body {
   position: relative;
   flex: 0 0 auto;
 }
-
 .tela-de-livro .item-book {
   position: relative;
   width: 404px;

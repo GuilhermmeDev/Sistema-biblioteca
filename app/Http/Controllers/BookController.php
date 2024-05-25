@@ -18,11 +18,17 @@ class BookController extends Controller
     }
 
     public function index(){
-        $books = Book::all();
+        $search = request('search');
 
-        $last_book = Book::orderBy('id', 'desc')->first();
+        if($search) {
+            $books = Book::where([
+                ['titulo', 'like', '%'. $search . '%' ]
+            ])->get();
+        } else {
+            $books = Book::all();
+        }
 
-        return view('home', ['book' => $books, 'last_book' => $last_book]);
+        return view('home', ['book' => $books, 'search' => $search]);
     }
 
     public function create() {

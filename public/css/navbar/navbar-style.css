@@ -22,6 +22,10 @@ body {
   height: 100%;
 }
 
+.ancor_img {
+  height: 100%;
+}
+
 .container_actions {
   display: flex;
   flex-direction: row;
@@ -68,17 +72,28 @@ body {
 }
 
 .container_user {
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: #c4cdff69;
   padding: 0.5em;
   border-radius: 32px;
   cursor: pointer;
 }
 
+.username {
+  color: #405A94;
+  margin-bottom: 0;
+  margin-left: 0.3em;
+}
+
 .user_icon {
   height: 2em;
 }
 
-#pesquisa {
+
+#search {
   padding: 10px;
   border-radius: 10px; 
   border: none;
@@ -86,6 +101,7 @@ body {
   height: 20%;
   font-size: 16px;
   outline: none;
+  font-family: "Poppins";
 }
 
 .search_icon {
@@ -103,3 +119,25 @@ body {
   margin-left: 30px;
   gap: 1em;
 }
+
+.container_logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.container_logout:hover {
+  background-color: #8b8b8b4f;
+  cursor: pointer;
+}
+
+.container_logout a {
+  color: #b80000;
+}
+
+.icon_logout {
+  height: 1.5em;
+}
+

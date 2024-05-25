@@ -11,7 +11,15 @@
 
 <div class="container_sections">
     <div class="container-slide">
-        <h1 class="titulo_section">A biblioteca tá ON</h1>
+        @if($search)
+            <h1 class="titulo_section">Buscando por: "{{$search}}"</h1>
+        @else 
+            <h1 class="titulo_section">A biblioteca tá ON</h1>
+        @endif
+
+        @if(count($book) == 0)
+            <p>Não há livros disponíveis :(</p>
+        @else
         <div #swiperRef="" class="swiper mySwiper">
             <div class="swiper-wrapper">
                 @foreach ($book as $item)
@@ -39,6 +47,7 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
+        @endif
     </div>
 </div>
 

@@ -1,6 +1,13 @@
-@extends('layouts.main')
+@extends('layouts.navbar')
 @section('title', 'Painel de Empréstimos')
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
+    </div>
+@endif
+
 @if ($loans != null)
 <table class="table">
     <thead>

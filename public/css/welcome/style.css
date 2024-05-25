@@ -1,0 +1,175 @@
+html
+body
+.tw-text-center {
+  text-align: center;
+}
+body {
+  font-family: "Poppins";
+  margin: 0;
+  padding: 0;
+  background-color:white;
+  color: rgb(255, 255, 255);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 120px;
+  width: 600;
+  margin-right: 10px;
+  margin-left: 110px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.register_button {
+  color: #ffffff;
+}
+
+.cadastro {
+  background-color: #8c9acb;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.intro {
+  text-align: center;
+  padding: 0px 20px;
+  background-color: white;
+}
+
+.intro h2 {
+  font-weight: 400;
+  margin-top: 40px;
+  justify-content: left;
+  margin-left: 150px;
+  display: flex;
+  color: #000000;
+}
+
+.intro h1 {
+  font-weight: 600;
+  font-size: 38px;
+  margin-top: 10px;
+  justify-content: left;
+  margin-left: 150px;
+  display: flex;
+  color: #000000;
+}
+
+.highlight {
+  color: #405a94;
+
+}
+
+.intro p {
+  color: white;
+  margin-top: -20px;
+  font-size: 18px;
+  justify-content: left;
+  margin-left: 150px;
+  display: flex;
+  color: #000000;
+}
+
+.btn {
+  background-color: #405a94;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  justify-content: left;
+  margin-left: 150px;
+  display: flex;
+  position: relative;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 20px;
+  background-color:white;
+  margin-top: 120px; /* Move a seção features para o fim do main */
+}
+
+.feature {
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.feature-header svg {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 2px; /* Reduzindo o espaçamento entre a imagem SVG e o título */
+}
+
+.feature h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.feature p {
+  color: rgb(0, 0, 0);
+  text-align: justify;
+  font-weight: 300;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.faca_parte {
+  text-decoration: none;
+}
+
+.cadastro {
+  background-color: #405a94;
+  color: white;
+  border-radius: 5px;
+  padding: 15px 20px;
+}
+#img{
+  margin-right: 4px; /* Reduzindo o espaçamento à direita da imagem SVG */
+}

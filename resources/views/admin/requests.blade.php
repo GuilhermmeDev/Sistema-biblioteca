@@ -1,6 +1,12 @@
-@extends('layouts.main')
+@extends('layouts.navbar')
 @section('title', 'Pedidos de Reservas')
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
+    </div>
+@endif
 <style>
     .table {
         margin: 15px;
@@ -10,10 +16,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id da reserva</th>
-                <th>Nome do Usuário</th>
-                <th>Nome do Livro</th>
-                <th>Vencimento</th>
+                <th scope="col">Id da reserva</th>
+                <th scope="col">Nome do Usuário</th>
+                <th scope="col">Nome do Livro</th>
+                <th scope="col">Vencimento</th>
             </tr>
         </thead>
         <tbody>

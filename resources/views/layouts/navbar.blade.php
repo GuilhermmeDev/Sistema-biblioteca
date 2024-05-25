@@ -16,38 +16,57 @@
 
         <nav class="navbar">
             <div class="container_logo">
-                <img src="{{asset('imgs/navbar/LYBRIS.svg')}}" alt="" class="img_navbar">
-                <div class="container_input">
-                    <img src="{{asset('imgs/navbar/search-line.svg')}}" class="search_icon">
-                    <input type="text" name="pesquisa" id="pesquisa" placeholder="O que você quer ler hoje?">
-                </div>
+                <a href="{{route('home')}}" class="ancor_img"><img src="{{asset('imgs/navbar/LYBRIS.svg')}}" alt="" class="img_navbar"></a>
+                @if(Route::currentRouteName() == 'home')
+                    <div class="container_input">
+                        <img src="{{asset('imgs/navbar/search-line.svg')}}" class="search_icon">
+                        <form action="/home" method="GET">
+                            <input type="text" name="search" id="search" placeholder="O que você quer ler hoje?">
+                        </form>
+                    </div>
+                @endif
             </div>
             <div class="container_actions">
                 <div class="container_button {{ request()->routeIs('home') || request()->routeIs('welcome') ? 'clicked' : ''}}">
                     <img src="{{asset('imgs/navbar/home-line.svg')}}" alt="icon home" class="nav_icon">
-                    <a class="botao_home" href="/" >Home</a>
+                    <a class="botao_home" href="{{route('home')}}" >Home</a>
                 </div>
     
-                <div class="container_button {{ request()->routeIs('create') ? 'clicked' : ''}}">
-                    <img src="{{asset('imgs/navbar/add-circle-line.svg')}}" alt="icon add" class="nav_icon">
-                    <a class="botao_home" href="/create" >Adicionar Livro</a>
-                </div>
-    
-                <div class="container_button {{ request()->routeIs('loans.panel') ? 'clicked' : ''}}">
-                    <img src="{{asset('imgs/navbar/search-eye-line.svg')}}" alt="icon search eye" class="nav_icon">
-                    <a class="botao_home" href="/loans" >Painel de Empréstimos</a>
-                </div>
-    
-                <div class="container_button {{ request()->routeIs('requests.reserves') ? 'clicked' : ''}}">
-                    <img src="{{asset('imgs/navbar/check-double-line.svg')}}" alt="icon check" class="nav_icon">
-                    <a class="botao_home" href="/reserve/requests" >Validar Reservas</a>
+                
+                @if(auth()->user()->level == 1)
+                    <div class="container_button {{ request()->routeIs('create') ? 'clicked' : ''}}">
+                        <img src="{{asset('imgs/navbar/add-circle-line.svg')}}" alt="icon add" class="nav_icon">
+                        <a class="botao_home" href="/create" >Adicionar Livro</a>
+                    </div>
+                    <div class="container_button {{ request()->routeIs('loans.panel') ? 'clicked' : ''}}">
+                        <img src="{{asset('imgs/navbar/search-eye-line.svg')}}" alt="icon search eye" class="nav_icon">
+                        <a class="botao_home" href="/loans" >Painel de Empréstimos</a>
+                    </div>
+        
+                    <div class="container_button {{ request()->routeIs('requests.reserves') ? 'clicked' : ''}}">
+                        <img src="{{asset('imgs/navbar/check-double-line.svg')}}" alt="icon check" class="nav_icon">
+                        <a class="botao_home" href="/reserve/requests" >Validar Reservas</a>
+                    </div>
+                @endif
+
+                <div class="container_logout">
+                    <img src="{{asset('imgs/navbar/logout-box-line.svg')}}" alt="icon logout" class="icon_logout">
+                    <form action="/logout" method="post" id="logout-form">
+                        @csrf
+                    </form>
+                    <a href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">Logout</a>
                 </div>
     
     
                 <div class="container_user">
                     <img src="{{asset('imgs/navbar/user-line.svg')}}" class="user_icon" alt="icon user">
+                    <p class="username">
+                        {{auth()->user()->name}}
+                    </p>
                 </div>
-            </div>
+        </div>
         </nav>
 
     <main>

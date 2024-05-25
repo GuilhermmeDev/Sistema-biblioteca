@@ -14,16 +14,20 @@
             <div class="container-princ">
               <div class="titulo">{{$book->titulo}}</div>
               <img class="OBJECTS" src="{{$book->url_img}}"/>
+              @if($book->disponibilidade == 1)
+                  <div class="disponibilidade">Disponível</div>
+              @elseif($book->disponibilidade == 0)
+                  <div class="disponibilidade">Não Disponível</div>
+              @endif
             </div>
-            @if($book->disponibilidade == 1)
-                <div class="disponibilidade">Disponível</div>
-            @elseif($book->disponibilidade == 0)
-                <div class="disponibilidade">Não Disponível</div>
-            @endif
           </div>
           <div class="container-1">
             <div class="container-2">
               <div class="container-3">
+                <div class="item-book avaliacao">
+                    <img src="{{asset('imgs/star-fill.svg')}}" alt="star icon" class="star_icon"> 
+                    <p class="avaliacao_value">{{$book->avaliacao}}</p>
+                </div>
                 <div class="item-book">Autor: <span class="resp">{{$book->autor}}</span></div>
                 <div class="item-book">Ano de Lançamento: <span class="resp">{{$book->ano_lancamento}}</span></div>
                 <div class="item-book">Número de Páginas: <span class="resp">{{$book->num_paginas}}</span></div>
@@ -52,7 +56,7 @@
                     <p class="lembrete">Você reservou o livro <a href="{{$userReservation->book->id}}">{{$userReservation->book->titulo}}</a></p>
                 @elseif($userLoan and $userLoan->book->id == $book->id)
                     <p class="lembrete">Você está com este livro, entregue-o para fazer outra reserva</p>
-                    <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userReservation->reservation_expiration)->format('d/m \à\s\ H:i')}}</p>
+                    <p class="disponivel">Vá a biblioteca até {{\Carbon\Carbon::parse($userLoan->devolution_date)->format('d/m \à\s\ H:i')}}</p>
                 @elseif($userLoan)
                     <p class="lembrete">Você está com o livro <a href="{{$userLoan->book->id}}" class="item-book">{{$userLoan->book->titulo}}</a>, 
                         entregue-o para fazer outra reserva</p>
