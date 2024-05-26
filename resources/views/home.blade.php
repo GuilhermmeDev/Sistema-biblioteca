@@ -10,6 +10,9 @@
 @section('content')
 
 <div class="container_sections">
+    @if(session('success'))
+        <p class="message alert-success">{{session('success')}}</p>
+    @endif
     <div class="container-slide">
         @if($search)
             <h1 class="titulo_section">Buscando por: "{{$search}}"</h1>

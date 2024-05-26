@@ -324,13 +324,6 @@ button:active{
   gap: 64px;
 }
 
-.message {
-  background-color: var(--branco-gelo);
-  border-radius: 16px;
-  padding: 10px 20px;
-  font-family: "Poppins";
-}
-
 .disponibilidade {
   background-color: var(--branco-gelo);
   padding: 10px 20px;

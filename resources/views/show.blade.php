@@ -9,7 +9,7 @@
         <div class="container-5">
             <div class="container-4">
                 @if(session('success'))
-                    <p class="message">{{session('success')}}</p>
+                    <p class="message alert-success">{{session('success')}}</p>
                 @endif
             <div class="container-princ">
               <div class="titulo">{{$book->titulo}}</div>

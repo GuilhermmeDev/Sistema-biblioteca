@@ -141,3 +141,9 @@ body {
   height: 1.5em;
 }
 
+.message {
+  border-radius: 16px;
+  padding: 10px 20px;
+  font-family: "Poppins";
+}
+
