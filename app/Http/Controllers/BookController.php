@@ -56,8 +56,7 @@ class BookController extends Controller
             return redirect('/create')->with('msg_fail', 'Livro já foi cadastrado anteriormente')->withInput();
 
         } catch (ModelNotFoundException $e){
-            $titulo = strtoupper($request->titulo);
-            $book->titulo = $titulo;
+            $book->titulo = $request->titulo;
         }
         
         if ($request->avaliacao < 0 or $request->avaliacao > 10) {
