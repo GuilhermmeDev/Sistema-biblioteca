@@ -99,13 +99,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 100px 50px;
+  gap: 50px 50px;
   position: relative;
+  flex-wrap: wrap;
+  margin: 3em 0;
 }
 
 .tela-de-livro .container-4 {
   display: flex;
   flex-direction: column;
+  height: 100%;
   align-items: center;
   gap: 63px;
   position: relative;
@@ -116,23 +119,21 @@
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  position: relative;
-  flex: 0 0 auto;
   background-color: white;
   padding: 20px;
   border-radius: 16px;
+  min-height: 100%;
 }
 
 .tela-de-livro .titulo {
-  position: relative;
   width: 100%;
-  margin-top: -1px;
   font-family: "Poppins", Helvetica;
   font-weight: 400;
   color: #000000;
-  font-size: 40px;
+  font-size: 2em;
   letter-spacing: 0;
   line-height: normal;
+  text-wrap: wrap;
 }
 
 .tela-de-livro .OBJECTS {
@@ -140,6 +141,7 @@
   min-width: 128;
   width: 256px;
   height: 384px;
+  border-radius: 16px;
 }
 
 .tela-de-livro .disponibilidade {
@@ -156,9 +158,8 @@
 .tela-de-livro .container-1 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  position: relative;
+  width: 100;
+  min-width: 60vw;
 }
 
 .container-1 {
@@ -230,7 +231,6 @@
 }
 
 .tela-de-livro .sinopse {
-  position: relative;
   margin-bottom: 100px;
   font-family: "Poppins", Helvetica;
   font-weight: 400;
@@ -240,6 +240,9 @@
   line-height: normal;
   padding: 10px;
   border-radius: 16px;
+  max-width: 100%;
+  text-wrap: wrap;
+  width: fit-content;
 }
 
 .tela-de-livro .botao-reserva {

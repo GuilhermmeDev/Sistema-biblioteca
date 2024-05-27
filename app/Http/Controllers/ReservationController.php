@@ -20,31 +20,39 @@ class ReservationController extends Controller
 
         $todayNum = date('w', strtotime($date)); // verifica o dia da semana
 
-        $reservation = new Reservation;
-        $reservation->user_id = auth()->user()->id;
-        $reservation->book_id = $book_id;
-        if ($todayNum != 6) {
-            $reservation->reservation_expiration = Carbon::now()->addHours(24); // adiciona 24 horas a data atual
-        }
-        else {
-            $reservation->reservation_expiration = Carbon::now()->addHours(48); // Se for sábado a expiração será a dois dias, se a biblioteca não abrir no domingo.
+        $checkNumEx = Book::find($book_id)->first();
+        
+        if ($checkNumEx->num_exemplares >= 1) {
+            $reservation = new Reservation;
+
+            $reservation->user_id = auth()->user()->id;
+            $reservation->book_id = $book_id;
+            if ($todayNum != 6) {
+                $reservation->reservation_expiration = Carbon::now()->addHours(24); // adiciona 24 horas a data atual
+            }
+            else {
+                $reservation->reservation_expiration = Carbon::now()->addHours(48); // Se for sábado a expiração será a dois dias, se a biblioteca não abrir no domingo.
+            }
+    
+            try {
+                $reservation->save();
+            } catch (\Illuminate\Database\QueryException $e) {
+                if ($e->errorInfo[1] == 1062) { // tratamento de erro de violação de chave unica do user
+                    return redirect()->back()->with('Error', 'Reserva já foi feita.');
+                }
+                
+                return redirect()->back()->with('Error', 'Alguma coisa deu errado' . $e);
+            }
+            // lógica para diminuir a quantidade de livros (1) no banco de dados
+            
+            $lowBook = Book::where('id', $book_id)->first();
+            $lowBook->num_exemplares = $lowBook->num_exemplares - 1;
+            $lowBook->save();
+            return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
         }
 
-        try {
-            $reservation->save();
-        } catch (\Illuminate\Database\QueryException $e) {
-            if ($e->errorInfo[1] == 1062) { // tratamento de erro de violação de chave unica do user
-                return redirect()->back()->with('Error', 'Reserva já foi feita.');
-            }
-            
-            return redirect()->back()->with('Error', 'Alguma coisa deu errado' . $e);
-        }
-        // lógica para diminuir a quantidade de livros (1) no banco de dados
-        
-        $lowBook = Book::where('id', $book_id)->first();
-        $lowBook->num_exemplares = $lowBook->num_exemplares - 1;
-        $lowBook->save();
-        return redirect()->back()->with('success', 'Reserva feita com sucesso! Vá a biblioteca nas próximas 24 horas');
+        return redirect()->back()->with('Error', 'Livro não disponível');
+
     }
 
 

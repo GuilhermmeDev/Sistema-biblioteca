@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="{{asset('css/show/styleguide.css')}}" />
 @section('title', $book->titulo)
 @section('content')
-    <div class="tela-de-livro">
+<div class="tela-de-livro">
+        @if(session('success'))
+            <p class="message alert-success">{{session('success')}}</p>
+        @endif
         <div class="container-5">
             <div class="container-4">
-                @if(session('success'))
-                    <p class="message alert-success">{{session('success')}}</p>
-                @endif
             <div class="container-princ">
               <div class="titulo">{{$book->titulo}}</div>
               <img class="OBJECTS" src="{{$book->url_img}}"/>
@@ -30,6 +30,7 @@
                 </div>
                 <div class="item-book">Autor: <span class="resp">{{$book->autor}}</span></div>
                 <div class="item-book">Ano de Lançamento: <span class="resp">{{$book->ano_lancamento}}</span></div>
+                <div class="item-book">Quantidade disponivel: <span class="resp">{{$book->num_exemplares}}</span></div>
                 <div class="item-book">Número de Páginas: <span class="resp">{{$book->num_paginas}}</span></div>
                 <div class="item-book">Genero: <span class="resp">{{$book->genero}}</span></div>
                 <div class="item-book">Sinopse:</div>
@@ -39,7 +40,7 @@
               {{$book->sinopse}}
             </p>
             <div class="buttons-container">
-                @if($userReservation == null and $userLoan == null and $book->disponibilidade == 1)
+                @if($userReservation == null and $userLoan == null and $book->disponibilidade == 1 and $book->num_exemplares >= 1)
 
                     <form action="{{route('reservation', ['id' => $book->id])}}" method="POST" class="botao-reserva">
                         @csrf

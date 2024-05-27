@@ -32,6 +32,9 @@ body {
   align-items: center;
   gap: 16px;
   margin-right: 1em;
+  background: #ffffff;
+  padding: 0.5em;
+  border-radius: 16px;
 }
 
 .container_button {
@@ -56,13 +59,13 @@ body {
 }
 
 .nav_icon {
-  width: 1.5em;
+  width: 1.2em;
 }
 
 .botao_home {
   font-family: "Poppins";
   font-weight: 400;
-  font-size: 15px;
+  font-size: 0.9em;
   color: #405A94;
   text-decoration: none;
 }
@@ -86,10 +89,11 @@ body {
   color: #405A94;
   margin-bottom: 0;
   margin-left: 0.3em;
+  font-size: 0.9em;
 }
 
 .user_icon {
-  height: 2em;
+  height: 1.5em;
 }
 
 
