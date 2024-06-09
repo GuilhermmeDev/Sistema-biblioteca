@@ -16,37 +16,40 @@ body {
   height: 100%;
 }
 
+body{
+  min-width: 300px;
+}
+
 /* a blue color as a generic focus style */
 button:focus-visible {
   outline: 2px solid #4a90e2 !important;
   outline: -webkit-focus-ring-color auto 5px !important;
 }
 
-form {
-  margin-right: 100px;
-}
-
 a {
   text-decoration: none;
 }
-.img{
+
+.img-container{
   display: flex;
-  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  justify-content: center;
   align-items: center;
-  min-width: 590px;
-  min-height: 100vh;
-  padding-right: 50px; /* Adiciona um espaçamento à direita */
   position: relative;
   background-color: #ffffff;
 }
 
+img{
+  height: 50vh;
+  width: 45vw;
+  max-width: 50vw;
+  max-height: 50vh;
+}
+
 .login-container {
     display: flex;
-    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    justify-content: space-evenly;
     align-items: center;
-    min-width: 590px;
     min-height: 100vh;
-    padding-right: 50px; /* Adiciona um espaçamento à direita */
     position: relative;
     background-color: #ffffff;
 }
@@ -61,8 +64,8 @@ a {
 }
   
 .logo-LY {
-  width: 50%;
-  height: 50%;
+  width: 50vw;
+  height: 50vh;
   margin: auto; /* Isso centralizará a logo horizontalmente */
   display: flex;
   justify-content: center; /* Isso centralizará o conteúdo dentro da logo horizontalmente */
@@ -90,8 +93,6 @@ label {
   margin-bottom: 5px;
 }
 
-
-
 .input-group {
   display: flex;
   flex-direction: column;
@@ -101,30 +102,27 @@ label {
 
 input[type="email"],
 input[type="password"] {
-  width: 433px;
+  width: 22vw;
   height: 44px;
+  min-width: 320px;
   background-color: #f0f0f0;
   border-radius: 8px;
   border: none;
   outline: none;
-  padding-left: 20px 10px;
-  padding: 20px;
+  padding: 20px 10px;
+  font-family: "Poppins";
 }
 
 .forgot-password {
   font-family: "Poppins", Helvetica;
-  padding-left: 10px;
-  margin-top: 10px;
-}
-
-.forgot-password a {
-    font-weight: 400;
-    font-size: 14px;
-    color: #5c5c5c;
+  font-weight: 400;
+  color: #5c5c5c;
+  font-size: 14px;
+  margin-top: 16px;
 }
 
 .button {
-  font: 1.0em "Poppins";
+  font-family: "Poppins", Helvetica;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end; /* Centraliza o botão */
@@ -136,6 +134,7 @@ input[type="password"] {
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .signup-link {
@@ -148,4 +147,19 @@ input[type="password"] {
 .signup-link a {
   font-weight: 600;
   color: #405a94;
+  text-decoration: none;
+
+}
+
+@media screen and (max-width: 700px){
+    .login-container{
+        flex-direction: column;
+        height: 20vh;
+        justify-content:center;
+    }
+
+    img{
+        height: 25vh;
+        width: 50vw;
+    }
 }

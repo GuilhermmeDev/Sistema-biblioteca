@@ -59,11 +59,14 @@
                 @enderror
             </div>
 
-            <p class="signup-link">Já possui conta? <a href="/login">Entrar</a></p>
             
             <button type="submit" class="button">Cadastrar-se</button>
+            <p class="signup-link">Já possui conta? <a href="/login">Entrar</a></p>
           </div>
+
         </form>
+
+
   </div>
 </body>
 </html>

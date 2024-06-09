@@ -14,6 +14,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  overflow-x: hidden;
 }
 
 /* a blue color as a generic focus style */
@@ -28,18 +29,18 @@ a {
 
 .img{
   display: flex;
-  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  justify-content: center;
   align-items: center;
   min-width: 590px;
   min-height: 100vh;
-  padding-right: 50px; /* Adiciona um espaçamento à direita */
+  padding-right: 50px; 
   position: relative;
   background-color: #ffffff;
 }
 
 .cadastro-container {
   display: flex;
-  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  justify-content: center;
   align-items: center;
   min-width: 590px;
   min-height: 100vh;
@@ -59,11 +60,10 @@ a {
 }
 
 .logo-LY {
-  width: 50%;
-  height: 50%;
-  margin: auto; /* Isso centralizará a logo horizontalmente */
+  width: 50vw;
+  height: 50vh;
   display: flex;
-  justify-content: center; /* Isso centralizará o conteúdo dentro da logo horizontalmente */
+  justify-content: center;
 }
 
 .cadastro-form {
@@ -87,9 +87,6 @@ label {
   margin-bottom: 5px;
 }
 
-.form-container {
-    margin-right: 100px;
-}
 
 .input-group {
   display: flex;
@@ -101,13 +98,15 @@ label {
 input[type="email"],
 input[type="password"],
 input[type="text"] {
-  width: 433px;
+  width: 22vw;
   height: 44px;
+  min-width: 320px;
   background-color: #f0f0f0;
   border-radius: 8px;
   border: none;
   outline: none;
-  padding-left: 20px;
+  padding: 20px 10px;
+  font-family: "Poppins";
 }
 
 .button {
@@ -139,3 +138,16 @@ input[type="text"] {
   text-decoration: none;
 }
 
+@media screen and (max-width: 800px){
+  .cadastro-container{
+      flex-direction: column;
+      height: 20vh;
+      justify-content:center;
+      padding: 2em 0;
+  }
+
+  img{
+      height: 25vh;
+      width: 50vw;
+  }
+}
