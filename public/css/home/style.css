@@ -38,7 +38,10 @@
 
 .swiper-slide {
     width: 100%;
-    min-width: 180px;
+    min-width: 10em;
+}
+.swiper--pagination {
+    position: relative;
 }
 
 .container-slide {
