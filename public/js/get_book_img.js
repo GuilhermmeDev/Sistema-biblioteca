@@ -27,7 +27,6 @@ function search() {
 
         result.forEach(element => {
 
-            console.log(element);
 
             const data = element['volumeInfo'];
             

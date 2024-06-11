@@ -2,7 +2,7 @@
 @section('title', 'Cadastro de Livro')
 @section('content')
 
-<link rel="stylesheet" href="{{asset('css/create|edit/style.css')}}">
+<link rel="stylesheet" href="{{asset('css/create_edit/style.css')}}">
 
 <div class="container">
 
@@ -105,5 +105,7 @@
     </div>
   </form>
 </div>
-<script src="js/get-api.js"></script>
+<script src="{{asset('js/get_book_img.js')}}"></script>
+<script src="{{asset('js/get_book.js')}}"></script>
+
 @endsection
