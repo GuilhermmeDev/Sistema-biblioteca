@@ -35,7 +35,7 @@
     
     <div class="container_label">
       <label for="sinopse" class="text-wrapper-5">Sinopse<span class="obrigatorio">*</span></label>
-      <textarea id="sinopse" name="sinopse" class="input textarea" maxlength="1000">{{$book->sinopse}}</textarea>
+      <textarea id="sinopse" name="sinopse" class="input textarea" maxlength="1500">{{$book->sinopse}}</textarea>
       @error('sinopse')
           <p>{{$message}}</p>
       @enderror

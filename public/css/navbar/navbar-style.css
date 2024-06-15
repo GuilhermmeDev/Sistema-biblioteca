@@ -6,7 +6,8 @@ body {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly; /* Gambiarra para a resposividade */
+  justify-content: space-evenly; 
+
 }
 
 .container_logo {
@@ -14,7 +15,6 @@ body {
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  margin-left: 50px;
 }
 
 .img_navbar {
@@ -35,6 +35,7 @@ body {
   background: #ffffff;
   padding: 0.5em;
   border-radius: 16px;
+
 }
 
 .container_button {
@@ -101,7 +102,7 @@ body {
   padding: 10px;
   border-radius: 10px; 
   border: none;
-  width: 400px;
+  width: 100%;
   height: 20%;
   font-size: 16px;
   outline: none;
@@ -120,7 +121,6 @@ body {
   align-items: center; 
   border-radius: 10px;
   background-color: #ffffff;
-  margin-left: 30px;
   gap: 1em;
 }
 
@@ -151,3 +151,66 @@ body {
   font-family: "Poppins";
 }
 
+
+.container_admin_buttons span{
+  display: flex;
+  flex-direction: row;
+}
+
+.on_drop {
+  display: none;
+}
+
+.drop_content{
+  display: flex;
+}
+
+main {
+  margin-top: 5rem;
+}
+
+@media screen and (max-width:900px){
+  .container_admin_buttons{
+    display: flex;
+  }
+
+  .on_drop {
+    display: block;
+    background-image: url("/NavBar/imgs/menu-line.svg");
+    width: 2em;
+    height: 2em;
+    background-color: #ffffff;
+    border: none;
+  }
+
+  .drop_content{
+    display: none;
+  }
+
+  .show{
+    display:block;
+    position: absolute;
+    float: left;
+    margin-top: 3em;
+    background-color: #ffffff;
+    border-radius: 16px;
+    z-index: 2;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2em;
+  }
+
+  .container_drop{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admin{
+    float: none;
+  }
+
+}

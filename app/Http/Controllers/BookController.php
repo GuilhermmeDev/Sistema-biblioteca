@@ -40,7 +40,7 @@ class BookController extends Controller
             'titulo' => 'required|string|max:255',
             'genero' => 'required|string|max:255',
             'autor' => 'required|string|max:255',
-            'sinopse' => 'required|string|max:1000',
+            'sinopse' => 'required|string|max:1500',
             'avaliacao' => 'nullable|numeric|between:0,5',
             'ano_lancamento' => 'required|min:0|integer',
             'num_exemplares' => 'required|min:0|integer',

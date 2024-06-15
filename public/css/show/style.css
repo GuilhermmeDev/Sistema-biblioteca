@@ -1,3 +1,7 @@
+body {
+  background-color: #E8EDED;
+}
+
 
 .tela-de-livro {
   display: flex;
@@ -101,7 +105,6 @@
   justify-content: center;
   gap: 50px 50px;
   position: relative;
-  flex-wrap: wrap;
   margin: 3em 0;
 }
 
@@ -120,7 +123,6 @@
   align-items: center;
   gap: 24px;
   background-color: white;
-  width: 25vw;
   padding: 20px;
   border-radius: 16px;
   min-height: 100%;
@@ -161,6 +163,7 @@
   flex-direction: column;
   width: 100;
   min-width: 60vw;
+  max-width: 75vw;
 }
 
 .container-1 {
@@ -170,7 +173,8 @@
 }
 
 .star_icon {
-  height: 90%;
+  width: 25px;
+  height: 25px;
 }
 
 .tela-de-livro .container-2 {
@@ -205,7 +209,7 @@
 .tela-de-livro .item-book {
   position: relative;
   height: 28px;
-  margin-top: -1px;
+  padding: 1em 0;
   font-family: "Poppins", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -213,11 +217,12 @@
   letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
-  color: var(--cor-primaria);
+  color: rgba(64, 90, 148, 1);
 }
 
 .resp {
   color: black;
+  width: fit-content;
 }
 
 .lembrete {
@@ -237,7 +242,7 @@
   font-weight: 400;
   color: #000000;
   font-size: 18px;
-  background-color: var(--branco-gelo);
+  background-color: rgb(232 237 237);
   line-height: normal;
   padding: 10px;
   border-radius: 16px;
@@ -325,14 +330,67 @@ button:active{
 
 .buttons-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 64px;
 }
 
 .disponibilidade {
-  background-color: var(--branco-gelo);
+  background-color: rgba(232, 237, 237, 1);
   padding: 10px 20px;
   border-radius: 16px;
 }
+/* Estilos para dispositivos de tela pequena (celulares) */
+@media (max-width: 768px) {
+.tela-de-livro .container-5 {
+  flex-direction: column; /* Mudar para layout de coluna */
+  align-items: center; /* Alinhar os itens no centro */
+}
+
+.tela-de-livro .container-4 {
+  width: 100%; /* Ocupar toda a largura disponível */
+  align-items: center; /* Alinhar os itens no centro */
+}
+
+.tela-de-livro .container-1 {
+  width: 100%; /* Ocupar toda a largura disponível */
+}
+
+.tela-de-livro .container-2 {
+  flex-direction: column; /* Mudar para layout de coluna */
+  align-items: center; /* Alinhar os itens no centro */
+  gap: 20px; /* Espaçamento entre os elementos */
+}
+
+.buttons-container {
+  flex-direction: column; /* Mudar para layout de coluna */
+  gap: 20px; /* Espaçamento entre os botões */
+}
+}
+/* Estilos para dispositivos de tela média (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+.tela-de-livro .container-5 {
+  flex-direction: row; /* Voltar ao layout de linha */
+  align-items: center; /* Alinhar os itens no centro */
+}
+
+.tela-de-livro .container-4 {
+  width: auto; /* Definir a largura automaticamente */
+  align-items: flex-start; /* Alinhar os itens no topo */
+  gap: 50px; /* Espaçamento entre os elementos */
+}
+
+.tela-de-livro .container-1 {
+  width: auto; /* Definir a largura automaticamente */
+  max-width: 50%; /* Limitar a largura para evitar que ocupe toda a tela */
+}
+
+.buttons-container {
+  flex-direction: row; /* Manter o layout de linha */
+  justify-content: center; /* Alinhar os botões ao centro */
+  gap: 20px; /* Espaçamento entre os botões */
+}
+}
+
 
 
 

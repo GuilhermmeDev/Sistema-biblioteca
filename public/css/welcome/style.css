@@ -3,13 +3,23 @@ body
 .tw-text-center {
   text-align: center;
 }
-body {
-  font-family: "Poppins";
+
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   margin: 0;
   padding: 0;
   background-color:white;
   color: rgb(255, 255, 255);
 }
+
+
 
 header {
   display: flex;
@@ -40,11 +50,7 @@ nav ul {
 nav a {
   text-decoration: none;
   color: #333;
-  font-weight: 600;
-}
-
-.register_button {
-  color: #ffffff;
+  font-weight: 500;
 }
 
 .cadastro {
@@ -56,8 +62,7 @@ nav a {
 
 .intro {
   text-align: center;
-  padding: 0px 20px;
-  background-color: white;
+  padding: 50px 20px;
 }
 
 .intro h2 {
@@ -70,7 +75,7 @@ nav a {
 }
 
 .intro h1 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 38px;
   margin-top: 10px;
   justify-content: left;
@@ -79,13 +84,9 @@ nav a {
   color: #000000;
 }
 
-.highlight {
-  color: #405a94;
 
-}
 
 .intro p {
-  color: white;
   margin-top: -20px;
   font-size: 18px;
   justify-content: left;
@@ -95,9 +96,11 @@ nav a {
 }
 
 .btn {
+  width: fit-content;
+  text-decoration: none;
   background-color: #405a94;
   color: white;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   font-size: 18px;
@@ -107,13 +110,17 @@ nav a {
   margin-left: 150px;
   display: flex;
   position: relative;
+  font-weight: 400;
 }
+
+.Lybris {
+  color: #405A94;
+}
+
 
 .features {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 50px 20px;
   background-color:white;
   margin-top: 120px; /* Move a seção features para o fim do main */
 }
@@ -127,7 +134,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 1.5rem;
 }
 
 .feature-header svg {
@@ -138,7 +145,7 @@ nav a {
 
 .feature h3 {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 10px;
   color: #000000;
 }
@@ -146,7 +153,6 @@ nav a {
 .feature p {
   color: rgb(0, 0, 0);
   text-align: justify;
-  font-weight: 300;
 }
 
 .nav-btn {
@@ -160,16 +166,99 @@ nav a {
   font-size: 16px;
 }
 
-.faca_parte {
-  text-decoration: none;
-}
-
 .cadastro {
-  background-color: #405a94;
+  background-color: #405A94;
   color: white;
   border-radius: 5px;
-  padding: 15px 20px;
 }
+
+.loginst{
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-size: 16px;
+}
+
 #img{
-  margin-right: 4px; /* Reduzindo o espaçamento à direita da imagem SVG */
+  margin-left: 10px;
+  margin-right: 20px; /* Reduzindo o espaçamento à direita da imagem SVG */
+}
+
+
+/* Estilos para dispositivos de tela pequena (celulares) */
+@media (max-width: 768px) {
+  .logo img {
+    height: 80px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    gap: 10px;
+    
+  }
+
+  .intro h2, .intro h1, .intro p {
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+  }
+
+  .intro h3 {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  .btn {
+    display: block;
+    margin: 0 auto; /* Centraliza o botão horizontalmente */
+  }
+
+  .cadastro {
+    display: none; /* Oculta o botão de cadastro */
+  }
+
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    margin-bottom: 30px;
+  }
+  .blue-text{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+
+  }
+}
+
+/* Estilos para dispositivos de tela média (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+
+  .intro h2, .intro h1, .intro p {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+
+  .features {
+    padding: 30px 20px;
+  }
 }

@@ -3,6 +3,7 @@ body {
 }
 
 .obrigatorio {
+    width: fit-content;
     color: red;
 }
 
@@ -25,6 +26,7 @@ form {
 
 label {
     font-size: 16px;
+    display: flex;
 }
 
 .input {

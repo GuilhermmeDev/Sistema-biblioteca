@@ -38,7 +38,7 @@
     
     <div class="container_label">
       <label for="sinopse" class="text-wrapper-5">Sinopse<span class="obrigatorio">*</span></label>
-      <textarea id="sinopse" name="sinopse" class="input textarea" maxlength="1000">{{old('sinopse')}}</textarea>
+      <textarea id="sinopse" name="sinopse" class="input textarea" maxlength="1500">{{old('sinopse')}}</textarea>
       @error('sinopse')
           <p>{{$message}}</p>
       @enderror

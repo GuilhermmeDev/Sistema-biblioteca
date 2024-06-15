@@ -17,7 +17,7 @@
         <nav class="navbar">
             <div class="container_logo">
                 <a href="{{route('home')}}" class="ancor_img"><img src="{{asset('imgs/navbar/LYBRIS.svg')}}" alt="" class="img_navbar"></a>
-                @if(Route::currentRouteName() == 'home')
+                @if(Route::currentRouteName() == 'home' or Route::currentRouteName() == 'welcome')
                     <div class="container_input">
                         <img src="{{asset('imgs/navbar/search-line.svg')}}" class="search_icon">
                         <form action="/home" method="GET">
@@ -34,18 +34,27 @@
     
                 
                 @if(auth()->user()->level == 1)
-                    <div class="container_button {{ request()->routeIs('create') ? 'clicked' : ''}}">
-                        <img src="{{asset('imgs/navbar/add-circle-line.svg')}}" alt="icon add" class="nav_icon">
-                        <a class="botao_home" href="/create" >Adicionar Livro</a>
-                    </div>
-                    <div class="container_button {{ request()->routeIs('loans.panel') ? 'clicked' : ''}}">
-                        <img src="{{asset('imgs/navbar/search-eye-line.svg')}}" alt="icon search eye" class="nav_icon">
-                        <a class="botao_home" href="/loans" >Painel de Empréstimos</a>
-                    </div>
-        
-                    <div class="container_button {{ request()->routeIs('requests.reserves') ? 'clicked' : ''}}">
-                        <img src="{{asset('imgs/navbar/check-double-line.svg')}}" alt="icon check" class="nav_icon">
-                        <a class="botao_home" href="/reserve/requests" >Validar Reservas</a>
+                    <div class="container_drop">
+
+                        <button class="on_drop" onclick="showDrop()">
+                            <img src="{{asset('imgs/navbar/menu-line.svg')}}" alt="options">
+                        </button>
+                        <div class="drop_content">
+                        
+                            <div class="container_button {{ request()->routeIs('create') ? 'clicked' : ''}}">
+                                <img src="{{asset('imgs/navbar/add-circle-line.svg')}}" alt="icon add" class="nav_icon">
+                                <a class="botao_home" href="/create" >Adicionar Livro</a>
+                            </div>
+                            <div class="container_button {{ request()->routeIs('loans.panel') ? 'clicked' : ''}}">
+                                <img src="{{asset('imgs/navbar/search-eye-line.svg')}}" alt="icon search eye" class="nav_icon">
+                                <a class="botao_home" href="/loans" >Painel de Empréstimos</a>
+                            </div>
+                
+                            <div class="container_button {{ request()->routeIs('requests.reserves') ? 'clicked' : ''}}">
+                                <img src="{{asset('imgs/navbar/check-double-line.svg')}}" alt="icon check" class="nav_icon">
+                                <a class="botao_home" href="/reserve/requests" >Validar Reservas</a>
+                            </div>
+                        </div>
                     </div>
                 @endif
 

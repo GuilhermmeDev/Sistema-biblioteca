@@ -7,11 +7,7 @@
         {{session('success')}}
     </div>
 @endif
-<style>
-    .table {
-        margin: 15px;
-    }
-</style>
+
 @if ($requests->count() > 0)
     <table class="table">
         <thead>
