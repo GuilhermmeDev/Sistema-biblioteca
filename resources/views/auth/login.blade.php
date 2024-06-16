@@ -36,6 +36,9 @@
                   <span><img src="imgs/error-warning-line.svg" alt="error">{{ $message }}</span>
               </div>
             @enderror
+          @if(session('block'))
+              <p style="color: red; font-weight: bold;">{{session('block')}}</p>
+          @endif
         </div>
         
         <button type="submit" class="button">Entrar</button>
