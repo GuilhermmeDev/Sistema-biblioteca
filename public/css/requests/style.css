@@ -1,0 +1,18 @@
+body {
+    margin: 0 3rem;
+}
+
+.table {
+    background-color: #ffffff;
+    border-radius: 16px;
+    font-family: "Poppins";
+
+}
+
+.table thead {
+    font-weight: 500;
+}
+
+.table tbody {
+    font-size: 14px;
+}

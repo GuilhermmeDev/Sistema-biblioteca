@@ -26,6 +26,7 @@ function SuggestBook(livro, item=0){
     let result = livro['items'][item]['volumeInfo'];
     titulo = result['title'];
     sinopse = result['description'];
+    sinopse = sinopse.substr(0,1500);
     if (result['authors'] != undefined) {
         if (result['authors'].length > 1) {
             autor = result['authors'].join(',');

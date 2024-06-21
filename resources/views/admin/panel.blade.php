@@ -2,11 +2,25 @@
 @section('title', 'Painel de Empréstimos')
 @section('content')
 
+<link rel="stylesheet" href="{{asset('css/loans/style.css')}}">
+
 @if(session('success'))
     <div class="alert alert-success" role="alert">
         {{session('success')}}
     </div>
 @endif
+
+<div class="container_views">
+    <h3>Filtragem</h3>
+    <select name="views" id="views">
+        <option value="actual" class="opt">Atual</option>
+        <option value="history" class="opt" {{request('view') == 'history' ? 'selected' : ''}} >Tudo</option>
+    </select>
+    <form action="/loans" method="get" class="form_views" id="form">
+        <input type="submit" name="view" value="actual">
+        <input type="submit" name="view" value="history">
+    </form>
+</div>
 
 @if ($loans != null)
 <table class="table">
@@ -39,8 +53,11 @@
     </tbody>
 </table>
 
+
 @elseif($loans == null)
     <h3>Nenhum empréstimo no momento.</h3>
 @endif
 
+
+<script src="{{asset('js/loans.js')}}"></script>
 @endsection

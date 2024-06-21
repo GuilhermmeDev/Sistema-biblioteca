@@ -2,6 +2,8 @@
 @section('title', 'Pedidos de Reservas')
 @section('content')
 
+<link rel="stylesheet" href="{{asset('css/requests/style.css')}}">
+
 @if(session('success'))
     <div class="alert alert-success" role="alert">
         {{session('success')}}

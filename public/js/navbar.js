@@ -9,15 +9,26 @@ buttons.forEach(button => {
     });
 });
 
-function showDrop(){
-    document.querySelector(".drop_content").classList.toggle("show");
-}
+const drop_content = document.querySelector(".drop_content")
+const container_drop = document.querySelector('.container_drop');
 
-window.onclick = function(e) {
-    if (!e.target.matches('.on_drop')) {
-    var myDropdown = document.getElementById("drop_content");
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-    }
+container_drop.addEventListener('click', function() {
+  if (drop_content.classList.contains('show')) {
+    drop_content.classList.remove('show');
   }
+  else {
+    drop_content.classList.add('show');
+  }
+})
+
+  const user = document.querySelector('.container_user');
+
+  user.addEventListener('click', function(event) {
+    var container = document.querySelector('.container_cred');
+    if (container.classList.contains('show_cred')) {
+      container.classList.remove('show_cred');
+    }
+    else {
+      container.classList.add('show_cred');
+    }
+  })

@@ -36,7 +36,7 @@
                 @if(auth()->user()->level == 1)
                     <div class="container_drop">
 
-                        <button class="on_drop" onclick="showDrop()">
+                        <button class="on_drop">
                             <img src="{{asset('imgs/navbar/menu-line.svg')}}" alt="options">
                         </button>
                         <div class="drop_content">
@@ -58,15 +58,6 @@
                     </div>
                 @endif
 
-                <div class="container_logout">
-                    <img src="{{asset('imgs/navbar/logout-box-line.svg')}}" alt="icon logout" class="icon_logout">
-                    <form action="/logout" method="post" id="logout-form">
-                        @csrf
-                    </form>
-                    <a href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">Logout</a>
-                </div>
     
     
                 <div class="container_user">
@@ -74,6 +65,18 @@
                     <p class="username">
                         {{auth()->user()->name}}
                     </p>
+                    <div class="container_cred">
+                        <p class="username cred">{{auth()->user()->credibility}} .Pts</p>
+                        <div class="container_logout">
+                            <form action="/logout" method="post" id="logout-form">
+                                @csrf
+                            </form>
+                            <img src="{{asset('imgs/navbar/logout-box-line.svg')}}" alt="icon logout" class="icon_logout">
+                            <a href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">Logout</a>
+                        </div>
+                    </div>
                 </div>
         </div>
         </nav>

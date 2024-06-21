@@ -9,7 +9,15 @@ use Illuminate\Support\Facades\DB;
 class LoansController extends Controller
 {
     public function panel() {
-        $loans = Loan::where('status', '!=', 'devolvido')->get();
+
+        $request = request('view');
+
+        if ($request == 'history') {
+            $loans = Loan::all();
+        }
+        else {
+            $loans = Loan::where('status', '!=', 'devolvido')->get();
+        }
 
         return view('admin.panel', ['loans' => $loans]);
     }
