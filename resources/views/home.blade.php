@@ -36,10 +36,12 @@
                                     <p class="author_book">{{$item->autor}}</p>
                                     <div class="title_star">
                                         <h6 class="title_book">{{$item->titulo}}</h6>
-                                        <div class="container_star">
-                                            <p class="avaliacao">{{$item->avaliacao}}</p>
-                                            <img src="{{asset('imgs/star-fill.svg')}}" alt="" class="star-icon">
-                                        </div>
+                                        @if($item->avaliacao)
+                                            <div class="container_star">
+                                                <p class="avaliacao">{{$item->avaliacao}}</p>
+                                                <img src="{{asset('imgs/star-fill.svg')}}" alt="" class="star-icon">
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

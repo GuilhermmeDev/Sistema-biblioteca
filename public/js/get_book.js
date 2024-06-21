@@ -57,7 +57,7 @@ function SuggestBook(livro, item=0){
     else {
         genero = '';
     }
-    aval = result['rating'] || '';
+    aval = result['averageRating'] || '';
 
     var suggestion = {'titulo':titulo, 'sinopse':sinopse, 'autor': autor, 'num_paginas':num_pag, 'ano_lancamento':ano, 'genero':genero, 'avaliacao':aval}
 

@@ -24,10 +24,12 @@
           <div class="container-1">
             <div class="container-2">
               <div class="container-3">
-                <div class="item-book avaliacao">
-                    <img src="{{asset('imgs/star-fill.svg')}}" alt="star icon" class="star_icon"> 
-                    <p class="avaliacao_value">{{$book->avaliacao}}</p>
-                </div>
+                @if ($book->avaliacao)
+                    <div class="item-book avaliacao">
+                        <img src="{{asset('imgs/star-fill.svg')}}" alt="star icon" class="star_icon"> 
+                        <p class="avaliacao_value">{{$book->avaliacao}}</p>
+                    </div>
+                @endif
                 <div class="item-book">Autor: <span class="resp">{{$book->autor}}</span></div>
                 <div class="item-book">Ano de Lançamento: <span class="resp">{{$book->ano_lancamento}}</span></div>
                 <div class="item-book">Quantidade disponivel: <span class="resp">{{$book->num_exemplares}}</span></div>

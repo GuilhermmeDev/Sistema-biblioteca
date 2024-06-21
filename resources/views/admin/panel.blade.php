@@ -42,11 +42,13 @@
                 <td>{{\Carbon\Carbon::parse($item->devolution_date)->format('d/m/Y')}}</td>
                 <td>{{$item->status}}</td>
                 <td>
+                    @if ($item->status != 'devolvido')
                     <form action="/loans/check/{{$item->id}}" method="post">
                         @csrf
                         @method('PUT')
                         <button class="btn btn-dark" type="submit">Marcar como Devolvido</button>
                     </form>
+                    @endif
                 </td>
             </tr>
         @endforeach
