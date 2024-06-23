@@ -200,6 +200,12 @@ main {
     border: none;
   }
 
+  .on_drop:focus {
+    outline: none;
+    background-color: #405a9433;
+    border-radius: 16px;
+  }
+
   .drop_content{
     display: none;
   }
