@@ -1,23 +1,121 @@
 ![LYBRIS](https://github.com/GuilhermmeDev/Sistema-biblioteca/assets/139175554/65a55631-7ab5-4be1-9b4b-13e86fe39dc2)
 
-A **LYBRIS** é uma plataforma integrada que conecta **bibliotecas** virtuais e físicas, destinada a **alunos** de ensino médio e **bibliotecários**. A solução digitaliza e automatiza processos burocráticos de **empréstimos** e **reservas** de livros, oferecendo uma **interface amigável** para busca e consulta de acervos. O objetivo é reduzir papeladas, **facilitar** a gestão de bibliotecas e melhorar o acesso à informação, promovendo uma experiência mais eficiente e **moderna** no ambiente escolar.
+---
+
+# 📚 LYBRIS
+
+**Lybris** é uma plataforma integrada que conecta bibliotecas físicas e virtuais, desenvolvida especialmente para alunos do ensino médio e bibliotecários. A solução tem como objetivo digitalizar e automatizar processos burocráticos de empréstimos e reservas de livros, promovendo uma gestão moderna, eficiente e sustentável das bibliotecas escolares.
+
+---
+
+## 🚀 Funcionalidades
+
+* 📖 Busca inteligente de livros
+* 🗓️ Reservas e empréstimos automatizados
+* 📊 Gestão de acervo para bibliotecários
+* 🧾 Redução do uso de papel e burocracia
+* 🔒 Autenticação e controle de usuários
+
+---
+
+## 🔎 Integração com a API do Google Books
+
+Lybris utiliza a **API do Google Books** para facilitar o cadastro de livros na biblioteca. Ao digitar o ISBN de um livro, a plataforma consulta automaticamente a API e preenche campos como:
+
+* 📘 Título
+* ✍️ Autor(es)
+* 🏷️ Editora
+* 🗓️ Data de publicação
+* 🖼️ Capa do livro
+
+Essa integração **agiliza o processo de cadastro**, evita erros manuais e garante que as informações estejam completas e padronizadas, melhorando a experiência de uso para bibliotecários e alunos.
+
+> ✅ Basta informar o Título do livro e o sistema faz o resto!
+
+---
 
 
-## Responsividade
-**Lybris** possui um design responsivo, garantindo que a plataforma funcione perfeitamente em dispositivos móveis. Isso permite que alunos e bibliotecários acessem e utilizem todas as funcionalidades, como busca de livros e gerenciamento de empréstimos, de maneira prática e intuitiva em **smartphones** e **tablets**.
+## 📱 Responsividade
 
-## Instalação
+Lybris possui um **design totalmente responsivo**, funcionando perfeitamente em smartphones, tablets e desktops. Isso garante que tanto alunos quanto bibliotecários possam utilizar todos os recursos de forma prática e intuitiva em qualquer dispositivo.
 
-1. clone o repo em algum local do seu computador com `git clone https://github.com/GuilhermmeDev/Sistema-biblioteca`
-2. Após isso, renomeie o arquivo `.env.example` para apenas `.env`. Nesse arquivo, descomente os paramêtros de conexão do Banco de dados (`DB_CONNECTION` até `DB_PASSWORD`) e coloque as informações do banco de dados. Ex.: Em `DB_CONMECTION` coloque o tipo do seu BD (mysql, sqlite, postgresql).
-3. Após isso, instale as dependências do projeto:
-    3.1. Com o [Composer](https://getcomposer.org/) instalado, dê o comando no terminal na pasta do projeto: `composer install`.
-    3.2. Com o [npm](https://www.npmjs.com/) execute o comando `npm install` seguido de `npm run build` para instalar as dependências de uma biblioteca vue.js e compilá-la, respectivamente.
-4. Agora, com o arquivo `.env` previamente configurado para seu BD, execute no terminal o comando `php artisan migrate` para preencher seus BD com as tabelas do projeto (books, users, loans, reservations...)
-5. Posteriormente, use o comando `php artisan db:seed` para preencher o BD com alguns dados fictícios para testes.
-    5.1. **OBS**: recomendo usar o phpmyadmin para acompanhar os processos do banco de dados.
-6. Por último, execute o comando `php artisan key:generate` para criar uma chave de autenticação para seu projeto e poder executá-lo
+---
 
+## ⚙️ Instalação
 
-Agora é só executar o projeto! Use o comando `php artisan serve` e será aberto um localhost na porta indicada _(normalmente a porta 8000)_.
+### 1. Clone o repositório
+
+```
+git clone https://github.com/GuilhermmeDev/Sistema-biblioteca
+cd Sistema-biblioteca
+```
+
+### 2. Configure o ambiente
+
+* Renomeie o arquivo `.env.example` para `.env`.
+* Edite as variáveis de ambiente relacionadas ao banco de dados (de `DB_CONNECTION` até `DB_PASSWORD`).
+  **Exemplo:**
+
+  ```
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=lybris
+  DB_USERNAME=root
+  DB_PASSWORD=sua_senha
+  ```
+
+### 3. Instale as dependências
+
+#### 3.1. Backend (Laravel)
+
+```
+composer install
+```
+
+#### 3.2. Frontend (Vue.js)
+
+```
+npm install
+npm run build
+```
+
+### 4. Configure o banco de dados
+
+* Execute as migrações:
+
+```
+php artisan migrate
+```
+
+> 💡 Recomendado: utilize uma ferramenta como **phpMyAdmin** para visualizar e acompanhar os dados do banco.
+
+### 5. Gere a chave da aplicação
+
+```
+php artisan key:generate
+```
+
+---
+
+## ▶️ Executando o projeto
+
+Após a instalação, basta rodar:
+
+```
+php artisan serve
+```
+
+Acesse a aplicação no navegador pelo endereço `http://localhost:8000`.
+
+---
+
+## 💻 Tecnologias utilizadas
+
+* PHP 8+ / Laravel
+* Vue.js
+* MySQL / PostgreSQL / SQLite
+* Composer / NPM
+
+---
 
